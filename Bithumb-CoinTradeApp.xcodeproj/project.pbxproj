@@ -10,7 +10,6 @@
 		878D0EFD27C4F3B40006D255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878D0EFC27C4F3B40006D255 /* AppDelegate.swift */; };
 		878D0EFF27C4F3B40006D255 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878D0EFE27C4F3B40006D255 /* SceneDelegate.swift */; };
 		878D0F0127C4F3B40006D255 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878D0F0027C4F3B40006D255 /* ViewController.swift */; };
-		878D0F0427C4F3B40006D255 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 878D0F0227C4F3B40006D255 /* Main.storyboard */; };
 		878D0F0627C4F3B60006D255 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 878D0F0527C4F3B60006D255 /* Assets.xcassets */; };
 		878D0F0927C4F3B60006D255 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 878D0F0727C4F3B60006D255 /* LaunchScreen.storyboard */; };
 		878D0F1427C4F3B60006D255 /* Bithumb_CoinTradeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878D0F1327C4F3B60006D255 /* Bithumb_CoinTradeAppTests.swift */; };
@@ -40,7 +39,6 @@
 		878D0EFC27C4F3B40006D255 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		878D0EFE27C4F3B40006D255 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		878D0F0027C4F3B40006D255 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		878D0F0327C4F3B40006D255 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		878D0F0527C4F3B60006D255 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		878D0F0827C4F3B60006D255 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		878D0F0A27C4F3B60006D255 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,10 +97,8 @@
 		878D0EFB27C4F3B40006D255 /* Bithumb-CoinTradeApp */ = {
 			isa = PBXGroup;
 			children = (
-				878D0EFC27C4F3B40006D255 /* AppDelegate.swift */,
-				878D0EFE27C4F3B40006D255 /* SceneDelegate.swift */,
+				878D0F2C27C4F4DA0006D255 /* Application */,
 				878D0F0027C4F3B40006D255 /* ViewController.swift */,
-				878D0F0227C4F3B40006D255 /* Main.storyboard */,
 				878D0F0527C4F3B60006D255 /* Assets.xcassets */,
 				878D0F0727C4F3B60006D255 /* LaunchScreen.storyboard */,
 				878D0F0A27C4F3B60006D255 /* Info.plist */,
@@ -125,6 +121,15 @@
 				878D0F1F27C4F3B60006D255 /* Bithumb_CoinTradeAppUITestsLaunchTests.swift */,
 			);
 			path = "Bithumb-CoinTradeAppUITests";
+			sourceTree = "<group>";
+		};
+		878D0F2C27C4F4DA0006D255 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				878D0EFC27C4F3B40006D255 /* AppDelegate.swift */,
+				878D0EFE27C4F3B40006D255 /* SceneDelegate.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +238,6 @@
 			files = (
 				878D0F0927C4F3B60006D255 /* LaunchScreen.storyboard in Resources */,
 				878D0F0627C4F3B60006D255 /* Assets.xcassets in Resources */,
-				878D0F0427C4F3B40006D255 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +301,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		878D0F0227C4F3B40006D255 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				878D0F0327C4F3B40006D255 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		878D0F0727C4F3B60006D255 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -367,7 +363,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -422,7 +418,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -444,7 +440,6 @@
 				INFOPLIST_FILE = "Bithumb-CoinTradeApp/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -472,7 +467,6 @@
 				INFOPLIST_FILE = "Bithumb-CoinTradeApp/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
