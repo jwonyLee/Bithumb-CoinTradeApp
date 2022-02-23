@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37DC6D69BB7E662B6DC0E1BB /* Pods_Bithumb_CoinTradeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D890884C2A7465502B65CF36 /* Pods_Bithumb_CoinTradeApp.framework */; };
 		878D0EFD27C4F3B40006D255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878D0EFC27C4F3B40006D255 /* AppDelegate.swift */; };
 		878D0EFF27C4F3B40006D255 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878D0EFE27C4F3B40006D255 /* SceneDelegate.swift */; };
 		878D0F0127C4F3B40006D255 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878D0F0027C4F3B40006D255 /* ViewController.swift */; };
@@ -15,6 +16,9 @@
 		878D0F1427C4F3B60006D255 /* Bithumb_CoinTradeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878D0F1327C4F3B60006D255 /* Bithumb_CoinTradeAppTests.swift */; };
 		878D0F1E27C4F3B60006D255 /* Bithumb_CoinTradeAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878D0F1D27C4F3B60006D255 /* Bithumb_CoinTradeAppUITests.swift */; };
 		878D0F2027C4F3B60006D255 /* Bithumb_CoinTradeAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878D0F1F27C4F3B60006D255 /* Bithumb_CoinTradeAppUITestsLaunchTests.swift */; };
+		87C6B42F27C656A900F880DE /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 87C6B42E27C656A900F880DE /* .swiftlint.yml */; };
+		9ECD99F2826A66425CB92D64 /* Pods_Bithumb_CoinTradeApp_Bithumb_CoinTradeAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4124A3D8295AA7391DD0913F /* Pods_Bithumb_CoinTradeApp_Bithumb_CoinTradeAppUITests.framework */; };
+		C7F0EEBBA715110E651FBB1E /* Pods_Bithumb_CoinTradeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F53B154EA529A538A2F21413 /* Pods_Bithumb_CoinTradeAppTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +39,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F8F9D108BC468AEAE39293F /* Pods-Bithumb-CoinTradeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bithumb-CoinTradeApp.release.xcconfig"; path = "Target Support Files/Pods-Bithumb-CoinTradeApp/Pods-Bithumb-CoinTradeApp.release.xcconfig"; sourceTree = "<group>"; };
+		4124A3D8295AA7391DD0913F /* Pods_Bithumb_CoinTradeApp_Bithumb_CoinTradeAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bithumb_CoinTradeApp_Bithumb_CoinTradeAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		878D0EF927C4F3B40006D255 /* Bithumb-CoinTradeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bithumb-CoinTradeApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		878D0EFC27C4F3B40006D255 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		878D0EFE27C4F3B40006D255 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		878D0F0027C4F3B40006D255 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		878D0F0027C4F3B40006D255 /* ViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		878D0F0527C4F3B60006D255 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		878D0F0827C4F3B60006D255 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		878D0F0A27C4F3B60006D255 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +53,14 @@
 		878D0F1927C4F3B60006D255 /* Bithumb-CoinTradeAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bithumb-CoinTradeAppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		878D0F1D27C4F3B60006D255 /* Bithumb_CoinTradeAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bithumb_CoinTradeAppUITests.swift; sourceTree = "<group>"; };
 		878D0F1F27C4F3B60006D255 /* Bithumb_CoinTradeAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bithumb_CoinTradeAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		87C6B42E27C656A900F880DE /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		9C3845E40234E189BCDFF1D4 /* Pods-Bithumb-CoinTradeApp-Bithumb-CoinTradeAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bithumb-CoinTradeApp-Bithumb-CoinTradeAppUITests.release.xcconfig"; path = "Target Support Files/Pods-Bithumb-CoinTradeApp-Bithumb-CoinTradeAppUITests/Pods-Bithumb-CoinTradeApp-Bithumb-CoinTradeAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AE518AF1FBC67DD8B2A94551 /* Pods-Bithumb-CoinTradeAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bithumb-CoinTradeAppTests.debug.xcconfig"; path = "Target Support Files/Pods-Bithumb-CoinTradeAppTests/Pods-Bithumb-CoinTradeAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B397BBA21B047532628C9E35 /* Pods-Bithumb-CoinTradeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bithumb-CoinTradeApp.debug.xcconfig"; path = "Target Support Files/Pods-Bithumb-CoinTradeApp/Pods-Bithumb-CoinTradeApp.debug.xcconfig"; sourceTree = "<group>"; };
+		C79AF223AAFF326AF92FA6E6 /* Pods-Bithumb-CoinTradeApp-Bithumb-CoinTradeAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bithumb-CoinTradeApp-Bithumb-CoinTradeAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-Bithumb-CoinTradeApp-Bithumb-CoinTradeAppUITests/Pods-Bithumb-CoinTradeApp-Bithumb-CoinTradeAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CD33F761FC87172CABB4D0CA /* Pods-Bithumb-CoinTradeAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bithumb-CoinTradeAppTests.release.xcconfig"; path = "Target Support Files/Pods-Bithumb-CoinTradeAppTests/Pods-Bithumb-CoinTradeAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		D890884C2A7465502B65CF36 /* Pods_Bithumb_CoinTradeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bithumb_CoinTradeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F53B154EA529A538A2F21413 /* Pods_Bithumb_CoinTradeAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bithumb_CoinTradeAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37DC6D69BB7E662B6DC0E1BB /* Pods_Bithumb_CoinTradeApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7F0EEBBA715110E651FBB1E /* Pods_Bithumb_CoinTradeAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,19 +84,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ECD99F2826A66425CB92D64 /* Pods_Bithumb_CoinTradeApp_Bithumb_CoinTradeAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22E50CE8291812DE9ADD9287 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B397BBA21B047532628C9E35 /* Pods-Bithumb-CoinTradeApp.debug.xcconfig */,
+				1F8F9D108BC468AEAE39293F /* Pods-Bithumb-CoinTradeApp.release.xcconfig */,
+				C79AF223AAFF326AF92FA6E6 /* Pods-Bithumb-CoinTradeApp-Bithumb-CoinTradeAppUITests.debug.xcconfig */,
+				9C3845E40234E189BCDFF1D4 /* Pods-Bithumb-CoinTradeApp-Bithumb-CoinTradeAppUITests.release.xcconfig */,
+				AE518AF1FBC67DD8B2A94551 /* Pods-Bithumb-CoinTradeAppTests.debug.xcconfig */,
+				CD33F761FC87172CABB4D0CA /* Pods-Bithumb-CoinTradeAppTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		878D0EF027C4F3B40006D255 = {
 			isa = PBXGroup;
 			children = (
+				87C6B42E27C656A900F880DE /* .swiftlint.yml */,
 				878D0EFB27C4F3B40006D255 /* Bithumb-CoinTradeApp */,
 				878D0F1227C4F3B60006D255 /* Bithumb-CoinTradeAppTests */,
 				878D0F1C27C4F3B60006D255 /* Bithumb-CoinTradeAppUITests */,
 				878D0EFA27C4F3B40006D255 /* Products */,
+				22E50CE8291812DE9ADD9287 /* Pods */,
+				AD796F51FCC692CACD4D0944 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,6 +165,16 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		AD796F51FCC692CACD4D0944 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D890884C2A7465502B65CF36 /* Pods_Bithumb_CoinTradeApp.framework */,
+				4124A3D8295AA7391DD0913F /* Pods_Bithumb_CoinTradeApp_Bithumb_CoinTradeAppUITests.framework */,
+				F53B154EA529A538A2F21413 /* Pods_Bithumb_CoinTradeAppTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,9 +182,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 878D0F2327C4F3B60006D255 /* Build configuration list for PBXNativeTarget "Bithumb-CoinTradeApp" */;
 			buildPhases = (
+				CB8C5D0EDA073F74C16C22FA /* [CP] Check Pods Manifest.lock */,
 				878D0EF527C4F3B40006D255 /* Sources */,
 				878D0EF627C4F3B40006D255 /* Frameworks */,
 				878D0EF727C4F3B40006D255 /* Resources */,
+				3D07322D998EE9B2260DD717 /* [CP] Embed Pods Frameworks */,
+				87C6B43027C656B500F880DE /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -156,6 +202,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 878D0F2627C4F3B60006D255 /* Build configuration list for PBXNativeTarget "Bithumb-CoinTradeAppTests" */;
 			buildPhases = (
+				004B0B05406D271578A0174B /* [CP] Check Pods Manifest.lock */,
 				878D0F0B27C4F3B60006D255 /* Sources */,
 				878D0F0C27C4F3B60006D255 /* Frameworks */,
 				878D0F0D27C4F3B60006D255 /* Resources */,
@@ -174,9 +221,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 878D0F2927C4F3B60006D255 /* Build configuration list for PBXNativeTarget "Bithumb-CoinTradeAppUITests" */;
 			buildPhases = (
+				176296FCD842524E33AD1AC3 /* [CP] Check Pods Manifest.lock */,
 				878D0F1527C4F3B60006D255 /* Sources */,
 				878D0F1627C4F3B60006D255 /* Frameworks */,
 				878D0F1727C4F3B60006D255 /* Resources */,
+				927024C193F67392723720CE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -236,6 +285,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87C6B42F27C656A900F880DE /* .swiftlint.yml in Resources */,
 				878D0F0927C4F3B60006D255 /* LaunchScreen.storyboard in Resources */,
 				878D0F0627C4F3B60006D255 /* Assets.xcassets in Resources */,
 			);
@@ -256,6 +306,127 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		004B0B05406D271578A0174B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bithumb-CoinTradeAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		176296FCD842524E33AD1AC3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bithumb-CoinTradeApp-Bithumb-CoinTradeAppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3D07322D998EE9B2260DD717 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bithumb-CoinTradeApp/Pods-Bithumb-CoinTradeApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bithumb-CoinTradeApp/Pods-Bithumb-CoinTradeApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bithumb-CoinTradeApp/Pods-Bithumb-CoinTradeApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		87C6B43027C656B500F880DE /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		927024C193F67392723720CE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bithumb-CoinTradeApp-Bithumb-CoinTradeAppUITests/Pods-Bithumb-CoinTradeApp-Bithumb-CoinTradeAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bithumb-CoinTradeApp-Bithumb-CoinTradeAppUITests/Pods-Bithumb-CoinTradeApp-Bithumb-CoinTradeAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bithumb-CoinTradeApp-Bithumb-CoinTradeAppUITests/Pods-Bithumb-CoinTradeApp-Bithumb-CoinTradeAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB8C5D0EDA073F74C16C22FA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bithumb-CoinTradeApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		878D0EF527C4F3B40006D255 /* Sources */ = {
@@ -430,6 +601,7 @@
 		};
 		878D0F2427C4F3B60006D255 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B397BBA21B047532628C9E35 /* Pods-Bithumb-CoinTradeApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -457,6 +629,7 @@
 		};
 		878D0F2527C4F3B60006D255 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F8F9D108BC468AEAE39293F /* Pods-Bithumb-CoinTradeApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -484,6 +657,7 @@
 		};
 		878D0F2727C4F3B60006D255 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE518AF1FBC67DD8B2A94551 /* Pods-Bithumb-CoinTradeAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -509,6 +683,7 @@
 		};
 		878D0F2827C4F3B60006D255 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD33F761FC87172CABB4D0CA /* Pods-Bithumb-CoinTradeAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -534,6 +709,7 @@
 		};
 		878D0F2A27C4F3B60006D255 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C79AF223AAFF326AF92FA6E6 /* Pods-Bithumb-CoinTradeApp-Bithumb-CoinTradeAppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -557,6 +733,7 @@
 		};
 		878D0F2B27C4F3B60006D255 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C3845E40234E189BCDFF1D4 /* Pods-Bithumb-CoinTradeApp-Bithumb-CoinTradeAppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
