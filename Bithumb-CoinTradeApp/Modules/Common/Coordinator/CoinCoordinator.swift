@@ -16,7 +16,7 @@ final class CoinCoordinator: Coordinator {
     
     func start() {
         let mainTabBarViewController = MainTabBarViewController()
-        let coinListViewController = CoinListViewController()
+        let coinListViewController = CoinListViewController(coordinator: self)
         coinListViewController.tabBarItem = UITabBarItem(title: "코인 목록",
                                                          image: nil,
                                                          selectedImage: nil)
@@ -26,5 +26,28 @@ final class CoinCoordinator: Coordinator {
                                                             selectedImage: nil)
         mainTabBarViewController.viewControllers = [coinListViewController, leaderBoardViewController]
         navigationController.pushViewController(mainTabBarViewController, animated: true)
+    }
+}
+
+// MARK: - CoinListCoordinatable
+extension CoinCoordinator: CoinListCoordinatable {
+    func showPager() {
+        let pagerViewController = PagerViewController(coordinator: self)
+        navigationController.pushViewController(pagerViewController, animated: true)
+    }
+}
+
+// MARK: - PagerCoordinatable
+extension CoinCoordinator: PagerCoodinatable {
+    func showChart() {
+        //
+    }
+
+    func showOrderbook() {
+        //
+    }
+
+    func showTransactionHistory() {
+        //
     }
 }
