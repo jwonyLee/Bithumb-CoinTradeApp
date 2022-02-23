@@ -17,6 +17,12 @@
 		878D0F1E27C4F3B60006D255 /* Bithumb_CoinTradeAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878D0F1D27C4F3B60006D255 /* Bithumb_CoinTradeAppUITests.swift */; };
 		878D0F2027C4F3B60006D255 /* Bithumb_CoinTradeAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878D0F1F27C4F3B60006D255 /* Bithumb_CoinTradeAppUITestsLaunchTests.swift */; };
 		87C6B42F27C656A900F880DE /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 87C6B42E27C656A900F880DE /* .swiftlint.yml */; };
+		87C6B43427C6599300F880DE /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C6B43327C6599300F880DE /* Coordinator.swift */; };
+		87C6B43727C65A5100F880DE /* CoinCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C6B43627C65A5100F880DE /* CoinCoordinator.swift */; };
+		87C6B43B27C65DDA00F880DE /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C6B43A27C65DDA00F880DE /* MainTabBarViewController.swift */; };
+		87C6B43F27C65EED00F880DE /* CoinListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C6B43E27C65EED00F880DE /* CoinListViewController.swift */; };
+		87C6B44127C65EF700F880DE /* LeaderBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C6B44027C65EF700F880DE /* LeaderBoardViewController.swift */; };
+		87C6B44327C660C500F880DE /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C6B44227C660C500F880DE /* BaseViewController.swift */; };
 		9ECD99F2826A66425CB92D64 /* Pods_Bithumb_CoinTradeApp_Bithumb_CoinTradeAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4124A3D8295AA7391DD0913F /* Pods_Bithumb_CoinTradeApp_Bithumb_CoinTradeAppUITests.framework */; };
 		C7F0EEBBA715110E651FBB1E /* Pods_Bithumb_CoinTradeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F53B154EA529A538A2F21413 /* Pods_Bithumb_CoinTradeAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -54,6 +60,12 @@
 		878D0F1D27C4F3B60006D255 /* Bithumb_CoinTradeAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bithumb_CoinTradeAppUITests.swift; sourceTree = "<group>"; };
 		878D0F1F27C4F3B60006D255 /* Bithumb_CoinTradeAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bithumb_CoinTradeAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		87C6B42E27C656A900F880DE /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		87C6B43327C6599300F880DE /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		87C6B43627C65A5100F880DE /* CoinCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCoordinator.swift; sourceTree = "<group>"; };
+		87C6B43A27C65DDA00F880DE /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		87C6B43E27C65EED00F880DE /* CoinListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinListViewController.swift; sourceTree = "<group>"; };
+		87C6B44027C65EF700F880DE /* LeaderBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardViewController.swift; sourceTree = "<group>"; };
+		87C6B44227C660C500F880DE /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		9C3845E40234E189BCDFF1D4 /* Pods-Bithumb-CoinTradeApp-Bithumb-CoinTradeAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bithumb-CoinTradeApp-Bithumb-CoinTradeAppUITests.release.xcconfig"; path = "Target Support Files/Pods-Bithumb-CoinTradeApp-Bithumb-CoinTradeAppUITests/Pods-Bithumb-CoinTradeApp-Bithumb-CoinTradeAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		AE518AF1FBC67DD8B2A94551 /* Pods-Bithumb-CoinTradeAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bithumb-CoinTradeAppTests.debug.xcconfig"; path = "Target Support Files/Pods-Bithumb-CoinTradeAppTests/Pods-Bithumb-CoinTradeAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B397BBA21B047532628C9E35 /* Pods-Bithumb-CoinTradeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bithumb-CoinTradeApp.debug.xcconfig"; path = "Target Support Files/Pods-Bithumb-CoinTradeApp/Pods-Bithumb-CoinTradeApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -131,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				878D0F2C27C4F4DA0006D255 /* Application */,
+				87C6B43127C6593C00F880DE /* Modules */,
 				878D0F0027C4F3B40006D255 /* ViewController.swift */,
 				878D0F0527C4F3B60006D255 /* Assets.xcassets */,
 				878D0F0727C4F3B60006D255 /* LaunchScreen.storyboard */,
@@ -163,6 +176,59 @@
 				878D0EFE27C4F3B40006D255 /* SceneDelegate.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		87C6B43127C6593C00F880DE /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				87C6B43D27C65EC000F880DE /* LeaderBoard */,
+				87C6B43C27C65E7200F880DE /* CoinList */,
+				87C6B43227C6598400F880DE /* Common */,
+				87C6B43927C65D8C00F880DE /* MainTab */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		87C6B43227C6598400F880DE /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				87C6B43527C65A3C00F880DE /* Coordinator */,
+				87C6B44227C660C500F880DE /* BaseViewController.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		87C6B43527C65A3C00F880DE /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				87C6B43327C6599300F880DE /* Coordinator.swift */,
+				87C6B43627C65A5100F880DE /* CoinCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		87C6B43927C65D8C00F880DE /* MainTab */ = {
+			isa = PBXGroup;
+			children = (
+				87C6B43A27C65DDA00F880DE /* MainTabBarViewController.swift */,
+			);
+			path = MainTab;
+			sourceTree = "<group>";
+		};
+		87C6B43C27C65E7200F880DE /* CoinList */ = {
+			isa = PBXGroup;
+			children = (
+				87C6B43E27C65EED00F880DE /* CoinListViewController.swift */,
+			);
+			path = CoinList;
+			sourceTree = "<group>";
+		};
+		87C6B43D27C65EC000F880DE /* LeaderBoard */ = {
+			isa = PBXGroup;
+			children = (
+				87C6B44027C65EF700F880DE /* LeaderBoardViewController.swift */,
+			);
+			path = LeaderBoard;
 			sourceTree = "<group>";
 		};
 		AD796F51FCC692CACD4D0944 /* Frameworks */ = {
@@ -433,8 +499,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87C6B43427C6599300F880DE /* Coordinator.swift in Sources */,
+				87C6B43727C65A5100F880DE /* CoinCoordinator.swift in Sources */,
 				878D0F0127C4F3B40006D255 /* ViewController.swift in Sources */,
+				87C6B43F27C65EED00F880DE /* CoinListViewController.swift in Sources */,
+				87C6B43B27C65DDA00F880DE /* MainTabBarViewController.swift in Sources */,
+				87C6B44327C660C500F880DE /* BaseViewController.swift in Sources */,
 				878D0EFD27C4F3B40006D255 /* AppDelegate.swift in Sources */,
+				87C6B44127C65EF700F880DE /* LeaderBoardViewController.swift in Sources */,
 				878D0EFF27C4F3B40006D255 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
