@@ -22,7 +22,6 @@ class APIRequester {
             paymentCurrency: paymentCurrency
         )) { (response: DataResponse<TransactionHistory, AFError>) in
             print(response.value)
-            print(response.value?.data.first?.transactionDateTime)
         }
     }
     
