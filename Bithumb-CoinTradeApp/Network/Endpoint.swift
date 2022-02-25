@@ -12,7 +12,7 @@ protocol Endpoint {
     var httpMethod: HTTPMethod { get }
     var baseURLString: String { get }
     var path: String { get }
-    var headers: [String: Any]? { get }
+    var headers: HTTPHeaders? { get }
     var body: [String: Any]? { get }
 }
 

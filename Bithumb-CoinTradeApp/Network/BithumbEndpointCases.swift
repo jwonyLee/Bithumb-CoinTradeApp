@@ -24,7 +24,7 @@ extension BithumbEndpointCases: Endpoint {
     }
     
     var baseURLString: String {
-        return "api.bithumb.com/public"
+        return "https://api.bithumb.com/public"
     }
     
     var path: String {
@@ -40,8 +40,8 @@ extension BithumbEndpointCases: Endpoint {
         }
     }
     
-    var headers: [String : Any]? {
-        return [:]
+    var headers: HTTPHeaders? {
+        return nil
     }
     
     var body: [String : Any]? {

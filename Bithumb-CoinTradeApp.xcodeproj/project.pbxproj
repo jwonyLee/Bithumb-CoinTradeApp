@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0082D8E127C7CE8D00E65E72 /* APIRequester.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082D8E027C7CE8D00E65E72 /* APIRequester.swift.swift */; };
+		0082D8E427C9153B00E65E72 /* AssetStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082D8E327C9153B00E65E72 /* AssetStatus.swift */; };
+		0082D8E727C9158C00E65E72 /* GeneralCodingKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082D8E627C9158C00E65E72 /* GeneralCodingKeys.swift */; };
+		0082D8E927C915F200E65E72 /* Ticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082D8E827C915F200E65E72 /* Ticker.swift */; };
+		0082D8EB27C9163C00E65E72 /* Orderbook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082D8EA27C9163C00E65E72 /* Orderbook.swift */; };
+		0082D8ED27C9164500E65E72 /* TransactionHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082D8EC27C9164500E65E72 /* TransactionHistory.swift */; };
 		37DC6D69BB7E662B6DC0E1BB /* Pods_Bithumb_CoinTradeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D890884C2A7465502B65CF36 /* Pods_Bithumb_CoinTradeApp.framework */; };
 		878D0EFD27C4F3B40006D255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878D0EFC27C4F3B40006D255 /* AppDelegate.swift */; };
 		878D0EFF27C4F3B40006D255 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878D0EFE27C4F3B40006D255 /* SceneDelegate.swift */; };
@@ -27,7 +33,7 @@
 		9ECD99F2826A66425CB92D64 /* Pods_Bithumb_CoinTradeApp_Bithumb_CoinTradeAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4124A3D8295AA7391DD0913F /* Pods_Bithumb_CoinTradeApp_Bithumb_CoinTradeAppUITests.framework */; };
 		C7F0EEBBA715110E651FBB1E /* Pods_Bithumb_CoinTradeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F53B154EA529A538A2F21413 /* Pods_Bithumb_CoinTradeAppTests.framework */; };
 		E5F5659E27C7C8CA0002599F /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F5659D27C7C8CA0002599F /* Endpoint.swift */; };
-		E5F565A127C7C8F20002599F /* EndpointCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F565A027C7C8F20002599F /* EndpointCases.swift */; };
+		E5F565A127C7C8F20002599F /* BithumbEndpointCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F565A027C7C8F20002599F /* BithumbEndpointCases.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +54,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0082D8E027C7CE8D00E65E72 /* APIRequester.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequester.swift.swift; sourceTree = "<group>"; };
+		0082D8E327C9153B00E65E72 /* AssetStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetStatus.swift; sourceTree = "<group>"; };
+		0082D8E627C9158C00E65E72 /* GeneralCodingKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralCodingKeys.swift; sourceTree = "<group>"; };
+		0082D8E827C915F200E65E72 /* Ticker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticker.swift; sourceTree = "<group>"; };
+		0082D8EA27C9163C00E65E72 /* Orderbook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orderbook.swift; sourceTree = "<group>"; };
+		0082D8EC27C9164500E65E72 /* TransactionHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHistory.swift; sourceTree = "<group>"; };
 		1F8F9D108BC468AEAE39293F /* Pods-Bithumb-CoinTradeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bithumb-CoinTradeApp.release.xcconfig"; path = "Target Support Files/Pods-Bithumb-CoinTradeApp/Pods-Bithumb-CoinTradeApp.release.xcconfig"; sourceTree = "<group>"; };
 		4124A3D8295AA7391DD0913F /* Pods_Bithumb_CoinTradeApp_Bithumb_CoinTradeAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bithumb_CoinTradeApp_Bithumb_CoinTradeAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		878D0EF927C4F3B40006D255 /* Bithumb-CoinTradeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bithumb-CoinTradeApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,7 +89,7 @@
 		CD33F761FC87172CABB4D0CA /* Pods-Bithumb-CoinTradeAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bithumb-CoinTradeAppTests.release.xcconfig"; path = "Target Support Files/Pods-Bithumb-CoinTradeAppTests/Pods-Bithumb-CoinTradeAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		D890884C2A7465502B65CF36 /* Pods_Bithumb_CoinTradeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bithumb_CoinTradeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F5659D27C7C8CA0002599F /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
-		E5F565A027C7C8F20002599F /* EndpointCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointCases.swift; sourceTree = "<group>"; };
+		E5F565A027C7C8F20002599F /* BithumbEndpointCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BithumbEndpointCases.swift; sourceTree = "<group>"; };
 		F53B154EA529A538A2F21413 /* Pods_Bithumb_CoinTradeAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bithumb_CoinTradeAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -109,6 +121,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0082D8E227C9152400E65E72 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0082D8E327C9153B00E65E72 /* AssetStatus.swift */,
+				0082D8E827C915F200E65E72 /* Ticker.swift */,
+				0082D8EA27C9163C00E65E72 /* Orderbook.swift */,
+				0082D8EC27C9164500E65E72 /* TransactionHistory.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0082D8E527C9157500E65E72 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0082D8E627C9158C00E65E72 /* GeneralCodingKeys.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		22E50CE8291812DE9ADD9287 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +182,8 @@
 				878D0F2C27C4F4DA0006D255 /* Application */,
 				87C6B43127C6593C00F880DE /* Modules */,
 				E5F5659C27C7C7FD0002599F /* Network */,
+				0082D8E227C9152400E65E72 /* Models */,
+				0082D8E527C9157500E65E72 /* Utils */,
 				878D0F0027C4F3B40006D255 /* ViewController.swift */,
 				878D0F0527C4F3B60006D255 /* Assets.xcassets */,
 				878D0F0727C4F3B60006D255 /* LaunchScreen.storyboard */,
@@ -261,7 +294,8 @@
 			isa = PBXGroup;
 			children = (
 				E5F5659D27C7C8CA0002599F /* Endpoint.swift */,
-				E5F565A027C7C8F20002599F /* EndpointCases.swift */,
+				E5F565A027C7C8F20002599F /* BithumbEndpointCases.swift */,
+				0082D8E027C7CE8D00E65E72 /* APIRequester.swift.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -524,17 +558,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0082D8E127C7CE8D00E65E72 /* APIRequester.swift.swift in Sources */,
 				87C6B43427C6599300F880DE /* Coordinator.swift in Sources */,
+				0082D8E727C9158C00E65E72 /* GeneralCodingKeys.swift in Sources */,
 				87C6B43727C65A5100F880DE /* CoinCoordinator.swift in Sources */,
 				878D0F0127C4F3B40006D255 /* ViewController.swift in Sources */,
+				0082D8ED27C9164500E65E72 /* TransactionHistory.swift in Sources */,
+				0082D8E427C9153B00E65E72 /* AssetStatus.swift in Sources */,
+				0082D8EB27C9163C00E65E72 /* Orderbook.swift in Sources */,
 				87C6B43F27C65EED00F880DE /* CoinListViewController.swift in Sources */,
 				87C6B44627C6640800F880DE /* PagerViewController.swift in Sources */,
 				87C6B43B27C65DDA00F880DE /* MainTabBarViewController.swift in Sources */,
 				87C6B44327C660C500F880DE /* BaseViewController.swift in Sources */,
+				0082D8E927C915F200E65E72 /* Ticker.swift in Sources */,
 				878D0EFD27C4F3B40006D255 /* AppDelegate.swift in Sources */,
 				87C6B44127C65EF700F880DE /* LeaderBoardViewController.swift in Sources */,
 				E5F5659E27C7C8CA0002599F /* Endpoint.swift in Sources */,
-				E5F565A127C7C8F20002599F /* EndpointCases.swift in Sources */,
+				E5F565A127C7C8F20002599F /* BithumbEndpointCases.swift in Sources */,
 				878D0EFF27C4F3B40006D255 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
