@@ -7,5 +7,7 @@
 
 import Foundation
 
-struct Ticker {
+struct Ticker: Codable {
+    let status: String
+    let data: TickerData
 }
