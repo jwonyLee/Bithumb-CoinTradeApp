@@ -16,6 +16,16 @@ class APIRequester {
         }
     }
     
+    func requestTransactionHistory(orderCurrency: String, paymentCurrency: String) {
+        request(endpoint: BithumbEndpointCases.transactionHistory(
+            orderCurrency: orderCurrency,
+            paymentCurrency: paymentCurrency
+        )) { (response: DataResponse<TransactionHistory, AFError>) in
+            print(response.value)
+            print(response.value?.data.first?.transactionDateTime)
+        }
+    }
+    
     private func request<T: Decodable>(
         endpoint: Endpoint,
         completion: ((DataResponse<T, AFError>) -> Void)?
