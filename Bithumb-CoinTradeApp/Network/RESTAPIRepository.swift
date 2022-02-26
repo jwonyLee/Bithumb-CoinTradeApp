@@ -10,7 +10,58 @@ import Foundation
 import Alamofire
 import RxSwift
 
-final class RESTAPIRepository {
+protocol RESTAPIRepositable {
+    func requestAssetStatus(orderCurrency: String) -> Single<AssetStatus>
+    
+    func requestTransactionHistory(
+        orderCurrency: String,
+        paymentCurrency: PaymentCurrency
+    ) -> Single<TransactionHistory>
+    
+    func requestOrderBook(
+        orderCurrency: String,
+        paymentCurrency: PaymentCurrency
+    ) -> Single<OrderBook>
+    
+    func requestAllOrderBook(
+        paymentCurrency: PaymentCurrency
+    ) -> Single<OrderBookAll>
+    
+    func requestAllTicker(paymentCurrency: PaymentCurrency) -> Single<TickerAll>
+    
+    func requestTicker(
+        orderCurrency: String,
+        paymentCurrency: PaymentCurrency
+    ) -> Single<Ticker>
+}
+
+extension RESTAPIRepositable {
+    func request<T: Codable>(_ endpoint: Endpoint) -> Single<T> {
+        return Single.create { observer -> Disposable in
+            let request = AF.request(
+                endpoint.url,
+                method: endpoint.httpMethod,
+                parameters: endpoint.body,
+                headers: endpoint.headers
+            )
+                .validate()
+                .responseDecodable { (response: DataResponse<T, AFError>) in
+                    switch response.result {
+                    case let .success(value):
+                        observer(.success(value))
+                    case let .failure(error):
+                        observer(.failure(error))
+                    }
+                }
+            
+            return Disposables.create { request.cancel() }
+        }
+    }
+}
+
+// MARK: - RESTAPIRepository
+
+final class RESTAPIRepository: RESTAPIRepositable {
     
     func requestAssetStatus(orderCurrency: String) -> Single<AssetStatus> {
         return request(BithumbEndpointCases.assetsStatus(orderCurrency: orderCurrency))
@@ -60,26 +111,5 @@ final class RESTAPIRepository {
             orderCurrency: orderCurrency,
             paymentCurrency: paymentCurrency
         ))
-    }
-    
-    private func request<T: Codable>(_ endpoint: Endpoint) -> Single<T> {
-        return Single.create { observer -> Disposable in
-            let request = AF.request(
-                endpoint.url,
-                method: endpoint.httpMethod,
-                parameters: endpoint.body,
-                headers: endpoint.headers
-            )
-                .validate()
-                .responseDecodable { (response: DataResponse<T, AFError>) in
-                    switch response.result {
-                    case let .success(value):
-                        observer(.success(value))
-                    case let .failure(error):
-                        observer(.failure(error))
-                    }
-                }
-            return Disposables.create {}
-        }
     }
 }
