@@ -8,9 +8,13 @@
 import Foundation
 import Alamofire
 
+enum PaymentCurrency: String {
+    case krw = "KRW"
+    case btc = "BTC"
+}
+
 enum BithumbEndpointCases {
     typealias OrderCurrency = String
-    typealias PaymentCurrency = String
     
     case ticker(orderCurrency: OrderCurrency, paymentCurrency: PaymentCurrency)
     case orderBook(orderCurrency: OrderCurrency, paymentCurrency: PaymentCurrency)
@@ -30,11 +34,11 @@ extension BithumbEndpointCases: Endpoint {
     var path: String {
         switch self {
         case let .ticker(orderCurrency, paymentCurrency):
-            return "/ticker/\(orderCurrency)_\(paymentCurrency)"
+            return "/ticker/\(orderCurrency)_\(paymentCurrency.rawValue)"
         case let .orderBook(orderCurrency, paymentCurrency):
-            return "/orderbook/\(orderCurrency)_\(paymentCurrency)"
+            return "/orderbook/\(orderCurrency)_\(paymentCurrency.rawValue)"
         case let .transactionHistory(orderCurrency, paymentCurrency):
-            return "/transaction_history/\(orderCurrency)_\(paymentCurrency)"
+            return "/transaction_history/\(orderCurrency)_\(paymentCurrency.rawValue)"
         case let .assetsStatus(orderCurrency):
             return "/assetsstatus/\(orderCurrency)"
         }
