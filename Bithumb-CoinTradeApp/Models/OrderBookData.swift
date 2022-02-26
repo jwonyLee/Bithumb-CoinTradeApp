@@ -8,9 +8,9 @@
 import Foundation
 
 struct OrderBookData: Codable {
-    let timestamp: String
+    let timestamp: String?
     let orderCurrency: String
-    let paymentCurrency: String
+    let paymentCurrency: String?
     let bids: [OrderBookTransaction]
     let asks: [OrderBookTransaction]
     
