@@ -36,6 +36,18 @@ class APIRequester {
             print(response.value)
         }
     }
+
+    func reqestTicker() {
+        request(endpoint: BithumbEndpointCases.ticker(orderCurrency: "BTC", paymentCurrency: "KRW") ) { (response: DataResponse<Ticker, AFError>) in
+            print(response.value)
+        }
+    }
+
+    func requestTickerAll() {
+        request(endpoint: BithumbEndpointCases.ticker(orderCurrency: "ALL", paymentCurrency: "KRW")) { (response: DataResponse<Ticker, AFError>) in
+            print(response.value)
+        }
+    }
     
     private func request<T: Decodable>(
         endpoint: Endpoint,
