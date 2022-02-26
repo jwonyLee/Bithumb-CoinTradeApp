@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0082D8E127C7CE8D00E65E72 /* APIRequester.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082D8E027C7CE8D00E65E72 /* APIRequester.swift.swift */; };
+		0082D8E127C7CE8D00E65E72 /* RESTAPIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082D8E027C7CE8D00E65E72 /* RESTAPIRepository.swift */; };
 		0082D8E427C9153B00E65E72 /* AssetStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082D8E327C9153B00E65E72 /* AssetStatus.swift */; };
 		0082D8E727C9158C00E65E72 /* GeneralCodingKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082D8E627C9158C00E65E72 /* GeneralCodingKeys.swift */; };
 		0082D8E927C915F200E65E72 /* Ticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082D8E827C915F200E65E72 /* Ticker.swift */; };
@@ -58,7 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0082D8E027C7CE8D00E65E72 /* APIRequester.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequester.swift.swift; sourceTree = "<group>"; };
+		0082D8E027C7CE8D00E65E72 /* RESTAPIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTAPIRepository.swift; sourceTree = "<group>"; };
 		0082D8E327C9153B00E65E72 /* AssetStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetStatus.swift; sourceTree = "<group>"; };
 		0082D8E627C9158C00E65E72 /* GeneralCodingKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralCodingKeys.swift; sourceTree = "<group>"; };
 		0082D8E827C915F200E65E72 /* Ticker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticker.swift; sourceTree = "<group>"; };
@@ -307,7 +307,7 @@
 			children = (
 				E5F5659D27C7C8CA0002599F /* Endpoint.swift */,
 				E5F565A027C7C8F20002599F /* BithumbEndpointCases.swift */,
-				0082D8E027C7CE8D00E65E72 /* APIRequester.swift.swift */,
+				0082D8E027C7CE8D00E65E72 /* RESTAPIRepository.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -570,7 +570,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0082D8E127C7CE8D00E65E72 /* APIRequester.swift.swift in Sources */,
+				0082D8E127C7CE8D00E65E72 /* RESTAPIRepository.swift in Sources */,
 				87C6B43427C6599300F880DE /* Coordinator.swift in Sources */,
 				0082D8E727C9158C00E65E72 /* GeneralCodingKeys.swift in Sources */,
 				87C6B43727C65A5100F880DE /* CoinCoordinator.swift in Sources */,
