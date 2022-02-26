@@ -24,6 +24,18 @@ class APIRequester {
             print(response.value)
         }
     }
+
+    func requestAllOrderbook() {
+        request(endpoint: BithumbEndpointCases.orderBook(orderCurrency: "ALL", paymentCurrency: "KRW")) { (response: DataResponse<OrderBookAll, AFError>) in
+            print(response.value)
+        }
+    }
+    
+    func requestOrderbook() {
+        request(endpoint: BithumbEndpointCases.orderBook(orderCurrency: "BTC", paymentCurrency: "KRW")) { (response: DataResponse<OrderBook, AFError>) in
+            print(response.value)
+        }
+    }
     
     private func request<T: Decodable>(
         endpoint: Endpoint,
