@@ -13,6 +13,7 @@
 		0082D8E927C915F200E65E72 /* Ticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082D8E827C915F200E65E72 /* Ticker.swift */; };
 		0082D8EB27C9163C00E65E72 /* OrderBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082D8EA27C9163C00E65E72 /* OrderBook.swift */; };
 		0082D8ED27C9164500E65E72 /* TransactionHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082D8EC27C9164500E65E72 /* TransactionHistory.swift */; };
+		0082D8EF27CB2C5E00E65E72 /* CoinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082D8EE27CB2C5E00E65E72 /* CoinCell.swift */; };
 		37DC6D69BB7E662B6DC0E1BB /* Pods_Bithumb_CoinTradeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D890884C2A7465502B65CF36 /* Pods_Bithumb_CoinTradeApp.framework */; };
 		878D0EFD27C4F3B40006D255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878D0EFC27C4F3B40006D255 /* AppDelegate.swift */; };
 		878D0EFF27C4F3B40006D255 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878D0EFE27C4F3B40006D255 /* SceneDelegate.swift */; };
@@ -68,6 +69,7 @@
 		0082D8E827C915F200E65E72 /* Ticker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticker.swift; sourceTree = "<group>"; };
 		0082D8EA27C9163C00E65E72 /* OrderBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBook.swift; sourceTree = "<group>"; };
 		0082D8EC27C9164500E65E72 /* TransactionHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHistory.swift; sourceTree = "<group>"; };
+		0082D8EE27CB2C5E00E65E72 /* CoinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCell.swift; sourceTree = "<group>"; };
 		1F8F9D108BC468AEAE39293F /* Pods-Bithumb-CoinTradeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bithumb-CoinTradeApp.release.xcconfig"; path = "Target Support Files/Pods-Bithumb-CoinTradeApp/Pods-Bithumb-CoinTradeApp.release.xcconfig"; sourceTree = "<group>"; };
 		4124A3D8295AA7391DD0913F /* Pods_Bithumb_CoinTradeApp_Bithumb_CoinTradeAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bithumb_CoinTradeApp_Bithumb_CoinTradeAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		878D0EF927C4F3B40006D255 /* Bithumb-CoinTradeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bithumb-CoinTradeApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -281,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				87C6B43E27C65EED00F880DE /* CoinListViewController.swift */,
+				0082D8EE27CB2C5E00E65E72 /* CoinCell.swift */,
 			);
 			path = CoinList;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 				0082D8E927C915F200E65E72 /* Ticker.swift in Sources */,
 				87F002D427C9206B001E8BDC /* TickerAll.swift in Sources */,
 				878D0EFD27C4F3B40006D255 /* AppDelegate.swift in Sources */,
+				0082D8EF27CB2C5E00E65E72 /* CoinCell.swift in Sources */,
 				87C6B44127C65EF700F880DE /* LeaderBoardViewController.swift in Sources */,
 				87CCA58A27CDCD5A00C5E022 /* LeaderBoardTableViewCell.swift in Sources */,
 				E5F565A527C924180002599F /* OrderBookAll.swift in Sources */,
