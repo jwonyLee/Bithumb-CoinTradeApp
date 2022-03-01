@@ -61,12 +61,6 @@ class CoinCell: UITableViewCell {
         
         likeButton.rx.tap
             .subscribe(with: self, onNext: { owner, _ in
-                owner.isLiked.toggle()
-                owner.likeButton.setImage(
-                    owner.isLiked ? owner.likedImage : owner.dislikedImage,
-                    for: .normal
-                )
-                
                 owner.didTapLikeButton?()
             })
             .disposed(by: disposeBag)
@@ -118,8 +112,10 @@ class CoinCell: UITableViewCell {
         
         let priceAttributedString = NSMutableAttributedString(string: price + "원  ")
         let fluctateRateAttributedString = NSMutableAttributedString(
-            string: "-\(price)%",
-            attributes: [.foregroundColor: UIColor.blue]
+            string: "\(fluctateRate)%",
+            attributes: [
+                .foregroundColor: fluctateRate.first == "-" ? UIColor.blue : UIColor.red
+            ]
         )
         
         priceAttributedString.append(fluctateRateAttributedString)

@@ -16,18 +16,24 @@ protocol CoinListCoordinatable {
 }
 
 final class CoinListViewController: BaseViewController {
-    private var coordinator: CoinListCoordinatable
+    private let coordinator: CoinListCoordinatable
+    private let viewModel: CoinListViewModelType
 
-    let tableView = UITableView().then {
+    private let tableView = UITableView().then {
         $0.register(CoinCell.self, forCellReuseIdentifier: CoinCell.reuseIdentifier)
         $0.estimatedRowHeight = 80
         $0.rowHeight = UITableView.automaticDimension
     }
     
-    var dataSource: UITableViewDiffableDataSource<Int, String>?
+    private var dataSource: UITableViewDiffableDataSource<Int, TickerViewData>?
     
-    init(coordinator: CoinListCoordinatable) {
+    init(
+        coordinator: CoinListCoordinatable,
+        viewModel: CoinListViewModelType
+    ) {
         self.coordinator = coordinator
+        self.viewModel = viewModel
+        
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -39,35 +45,15 @@ final class CoinListViewController: BaseViewController {
         super.viewDidLoad()
     }
     
+    // MARK: - setUI
+    
     override func setUI() {
         view.addSubview(tableView)
         
         configureDataSource()
-        
-        var snapShot = NSDiffableDataSourceSnapshot<Int, String>()
-        snapShot.appendSections([0])
-        snapShot.appendItems(["1", "2", "3"])
-        dataSource?.apply(snapShot)
     }
     
-    func configureDataSource() {
-        dataSource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { tableView, indexPath, itemIdentifier in
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: CoinCell.reuseIdentifier, for: indexPath) as? CoinCell else { return UITableViewCell() }
-            
-            cell.configure(
-                icon: nil,
-                coinName: itemIdentifier,
-                price: itemIdentifier,
-                fluctateRate: itemIdentifier,
-                isLiked: false) { [weak self] in
-                    self?.didTapLikeButton(itemIdentifier)
-                }
-            
-            return cell
-        })
-        
-        tableView.dataSource = dataSource
-    }
+    // MARK: - setConstraint
     
     override func setConstraint() {
         tableView.snp.makeConstraints { make in
@@ -77,15 +63,54 @@ final class CoinListViewController: BaseViewController {
         }
     }
     
+    // MARK: - bind
+    
     override func bind() {
-        
+        viewModel.coinListObservable
+            .asDriver(onErrorJustReturn: [])
+            .drive(with: self, onNext: { owner, coins in
+                owner.loadCoins(coins)
+            })
+            .disposed(by: disposeBag)
     }
+    
+    // MARK: - subscribeUI
     
     override func subscribeUI() {
         
     }
     
-    func didTapLikeButton(_ id: String) {
-        print("like button tapped", id)
+    private func configureDataSource() {
+        dataSource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { tableView, indexPath, itemIdentifier in
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CoinCell.reuseIdentifier, for: indexPath) as? CoinCell else { return UITableViewCell() }
+            
+            cell.configure(
+                icon: nil,
+                coinName: itemIdentifier.coinName,
+                price: itemIdentifier.currentPrice,
+                fluctateRate: itemIdentifier.fluctateRate,
+                isLiked: itemIdentifier.isLiked,
+                didTapLikeButton: { [weak self] in
+                    self?.didTapLikeButton(itemIdentifier.coinName)
+                }
+            )
+            
+            return cell
+        })
+        
+        dataSource?.defaultRowAnimation = .none
+        tableView.dataSource = dataSource
+    }
+    
+    private func loadCoins(_ coins: [TickerViewData]) {
+        var snapShot = NSDiffableDataSourceSnapshot<Int, TickerViewData>()
+        snapShot.appendSections([0])
+        snapShot.appendItems(coins)
+        
+        dataSource?.apply(snapShot)
+    }
+    
+    private func didTapLikeButton(_ coinName: String) {
+        viewModel.changeLikeState(coinName)
     }
 }
