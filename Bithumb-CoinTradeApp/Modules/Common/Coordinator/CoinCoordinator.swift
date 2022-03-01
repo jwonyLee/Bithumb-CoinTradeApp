@@ -16,7 +16,9 @@ final class CoinCoordinator: Coordinator {
     
     func start() {
         let mainTabBarViewController = MainTabBarViewController()
-        let coinListViewController = CoinListViewController(coordinator: self)
+        let coinListViewModel = CoinListViewModel()
+        let coinListViewController = CoinListViewController(coordinator: self, viewModel: coinListViewModel)
+        
         coinListViewController.tabBarItem = UITabBarItem(title: "코인 목록",
                                                          image: nil,
                                                          selectedImage: nil)
