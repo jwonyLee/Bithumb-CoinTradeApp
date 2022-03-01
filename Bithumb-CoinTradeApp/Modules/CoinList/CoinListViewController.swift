@@ -85,11 +85,7 @@ final class CoinListViewController: BaseViewController {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CoinCell.reuseIdentifier, for: indexPath) as? CoinCell else { return UITableViewCell() }
             
             cell.configure(
-                icon: nil,
-                coinName: itemIdentifier.coinName,
-                price: itemIdentifier.currentPrice,
-                fluctateRate: itemIdentifier.fluctateRate,
-                isLiked: itemIdentifier.isLiked,
+                viewData: itemIdentifier,
                 didTapLikeButton: { [weak self] in
                     self?.didTapLikeButton(itemIdentifier.coinName)
                 }
