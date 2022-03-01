@@ -30,6 +30,9 @@
 		87C6B44127C65EF700F880DE /* LeaderBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C6B44027C65EF700F880DE /* LeaderBoardViewController.swift */; };
 		87C6B44327C660C500F880DE /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C6B44227C660C500F880DE /* BaseViewController.swift */; };
 		87C6B44627C6640800F880DE /* PagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C6B44527C6640800F880DE /* PagerViewController.swift */; };
+		87CCA58827CDCC6F00C5E022 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CCA58727CDCC6F00C5E022 /* UIView+.swift */; };
+		87CCA58A27CDCD5A00C5E022 /* LeaderBoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CCA58927CDCD5A00C5E022 /* LeaderBoardTableViewCell.swift */; };
+		87CCA58E27CDD99E00C5E022 /* LabelWithRoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CCA58D27CDD99E00C5E022 /* LabelWithRoundImageView.swift */; };
 		87F002D427C9206B001E8BDC /* TickerAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F002D327C9206B001E8BDC /* TickerAll.swift */; };
 		87F002D627C9209F001E8BDC /* TickerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F002D527C9209F001E8BDC /* TickerData.swift */; };
 		9ECD99F2826A66425CB92D64 /* Pods_Bithumb_CoinTradeApp_Bithumb_CoinTradeAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4124A3D8295AA7391DD0913F /* Pods_Bithumb_CoinTradeApp_Bithumb_CoinTradeAppUITests.framework */; };
@@ -86,6 +89,9 @@
 		87C6B44027C65EF700F880DE /* LeaderBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardViewController.swift; sourceTree = "<group>"; };
 		87C6B44227C660C500F880DE /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		87C6B44527C6640800F880DE /* PagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerViewController.swift; sourceTree = "<group>"; };
+		87CCA58727CDCC6F00C5E022 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		87CCA58927CDCD5A00C5E022 /* LeaderBoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardTableViewCell.swift; sourceTree = "<group>"; };
+		87CCA58D27CDD99E00C5E022 /* LabelWithRoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithRoundImageView.swift; sourceTree = "<group>"; };
 		87F002D327C9206B001E8BDC /* TickerAll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerAll.swift; sourceTree = "<group>"; };
 		87F002D527C9209F001E8BDC /* TickerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerData.swift; sourceTree = "<group>"; };
 		9C3845E40234E189BCDFF1D4 /* Pods-Bithumb-CoinTradeApp-Bithumb-CoinTradeAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bithumb-CoinTradeApp-Bithumb-CoinTradeAppUITests.release.xcconfig"; path = "Target Support Files/Pods-Bithumb-CoinTradeApp-Bithumb-CoinTradeAppUITests/Pods-Bithumb-CoinTradeApp-Bithumb-CoinTradeAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -147,6 +153,7 @@
 		0082D8E527C9157500E65E72 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				87CCA58627CDCC6200C5E022 /* Extension */,
 				0082D8E627C9158C00E65E72 /* GeneralCodingKeys.swift */,
 			);
 			path = Utils;
@@ -280,6 +287,8 @@
 			isa = PBXGroup;
 			children = (
 				87C6B44027C65EF700F880DE /* LeaderBoardViewController.swift */,
+				87CCA58927CDCD5A00C5E022 /* LeaderBoardTableViewCell.swift */,
+				87CCA58D27CDD99E00C5E022 /* LabelWithRoundImageView.swift */,
 			);
 			path = LeaderBoard;
 			sourceTree = "<group>";
@@ -290,6 +299,14 @@
 				87C6B44527C6640800F880DE /* PagerViewController.swift */,
 			);
 			path = Pager;
+			sourceTree = "<group>";
+		};
+		87CCA58627CDCC6200C5E022 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				87CCA58727CDCC6F00C5E022 /* UIView+.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		AD796F51FCC692CACD4D0944 /* Frameworks */ = {
@@ -587,11 +604,14 @@
 				87F002D427C9206B001E8BDC /* TickerAll.swift in Sources */,
 				878D0EFD27C4F3B40006D255 /* AppDelegate.swift in Sources */,
 				87C6B44127C65EF700F880DE /* LeaderBoardViewController.swift in Sources */,
+				87CCA58A27CDCD5A00C5E022 /* LeaderBoardTableViewCell.swift in Sources */,
 				E5F565A527C924180002599F /* OrderBookAll.swift in Sources */,
 				E5F5659E27C7C8CA0002599F /* Endpoint.swift in Sources */,
 				E5F565A327C924120002599F /* OrderBookData.swift in Sources */,
+				87CCA58E27CDD99E00C5E022 /* LabelWithRoundImageView.swift in Sources */,
 				E5F565A127C7C8F20002599F /* BithumbEndpointCases.swift in Sources */,
 				878D0EFF27C4F3B40006D255 /* SceneDelegate.swift in Sources */,
+				87CCA58827CDCC6F00C5E022 /* UIView+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
