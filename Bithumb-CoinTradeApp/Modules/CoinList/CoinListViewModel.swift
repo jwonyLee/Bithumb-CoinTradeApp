@@ -12,6 +12,7 @@ import RxSwift
 protocol CoinListViewModelType {
     var coinListObservable: Observable<[TickerViewData]> { get }
     func changeLikeState(_ coin: String)
+    func changeList(to type: CoinListType)
 }
 
 final class CoinListViewModel: CoinListViewModelType {
@@ -20,6 +21,7 @@ final class CoinListViewModel: CoinListViewModelType {
     private var tickerDict = [String: TickerData]()
     private let tickerViewDataSubject = BehaviorSubject<[TickerViewData]>(value: [])
     private var tickerViewDataList = [TickerViewData]()
+    private var listType: CoinListType = .krw
     
     var coinListObservable: Observable<[TickerViewData]> { tickerViewDataSubject }
     
@@ -39,6 +41,7 @@ final class CoinListViewModel: CoinListViewModelType {
                 coinName: coinName,
                 currentPrice: tickerData.openingPrice,
                 fluctateRate: tickerData.fluctateRate24H,
+                unitTraded: tickerData.unitsTraded,
                 isLiked: false
             )
         }
@@ -49,6 +52,21 @@ final class CoinListViewModel: CoinListViewModelType {
         
         tickerViewDataList[tickerIndex].isLiked.toggle()
         tickerViewDataSubject.onNext(tickerViewDataList)
+    }
+    
+    func changeList(to type: CoinListType) {
+        guard listType != type else { return }
+        
+        listType = type
+        
+        switch type {
+        case .krw:
+            tickerViewDataSubject.onNext(tickerViewDataList)
+        case .like:
+            tickerViewDataSubject.onNext(tickerViewDataList.filter(\.isLiked))
+        case .popular:
+            tickerViewDataSubject.onNext(tickerViewDataList.sorted { $0.tradedCount > $1.tradedCount })
+        }
     }
 }
 

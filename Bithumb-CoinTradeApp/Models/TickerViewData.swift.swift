@@ -11,6 +11,7 @@ struct TickerViewData: Hashable {
     let coinName: String
     let currentPrice: String
     let fluctateRate: String
+    let unitTraded: String
     var isLiked: Bool
     
     func hash(into hasher: inout Hasher) {
@@ -39,5 +40,9 @@ extension TickerViewData {
         default:
             return .veryLow
         }
+    }
+    
+    var tradedCount: Double {
+        Double(unitTraded) ?? 0
     }
 }
