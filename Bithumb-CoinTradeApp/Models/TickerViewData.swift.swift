@@ -17,3 +17,27 @@ struct TickerViewData: Hashable {
         hasher.combine(coinName)
     }
 }
+
+extension TickerViewData {
+    enum FluctateRateFeeling {
+        case veryHigh
+        case high
+        case low
+        case veryLow
+    }
+    
+    var fluctateRateFeeling: FluctateRateFeeling {
+        guard let rate = Double(fluctateRate) else { return .high }
+        
+        switch rate {
+        case 10...:
+            return .veryHigh
+        case 0..<10:
+            return .high
+        case -10..<0:
+            return .low
+        default:
+            return .veryLow
+        }
+    }
+}

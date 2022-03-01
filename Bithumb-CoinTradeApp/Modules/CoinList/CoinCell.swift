@@ -12,9 +12,8 @@ class CoinCell: UITableViewCell {
     static let reuseIdentifier = NSStringFromClass(CoinCell.self)
     private var disposeBag = DisposeBag()
     
-    private let iconImageView = UIImageView().then {
-        $0.contentMode = .scaleAspectFit
-        $0.image = .init(systemName: "bitcoinsign.circle")
+    private let iconLabel = UILabel().then {
+        $0.font = .preferredFont(forTextStyle: .title1)
     }
     
     private let coinInfoStackView = UIStackView().then {
@@ -55,7 +54,7 @@ class CoinCell: UITableViewCell {
     }
     
     private func setUI() {
-        contentView.addSubview(iconImageView)
+        contentView.addSubview(iconLabel)
         contentView.addSubview(coinInfoStackView)
         contentView.addSubview(likeButton)
         
@@ -76,7 +75,7 @@ class CoinCell: UITableViewCell {
         coinInfoStackView.addArrangedSubview(coinNameLabel)
         coinInfoStackView.addArrangedSubview(priceLabel)
 
-        iconImageView.snp.makeConstraints { make in
+        iconLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(20)
             make.width.equalTo(40)
             make.height.greaterThanOrEqualTo(40)
@@ -84,8 +83,8 @@ class CoinCell: UITableViewCell {
         }
         
         coinInfoStackView.snp.makeConstraints { make in
-            make.leading.equalTo(iconImageView.snp.trailing).offset(20)
-            make.centerY.equalTo(iconImageView)
+            make.leading.equalTo(iconLabel.snp.trailing).offset(20)
+            make.centerY.equalTo(iconLabel)
             make.trailing.equalTo(likeButton.snp.leading).offset(20)
         }
         
@@ -97,24 +96,27 @@ class CoinCell: UITableViewCell {
     }
     
     func configure(
-        icon: UIImage? = nil,
-        coinName: String,
-        price: String,
-        fluctateRate: String,
-        isLiked: Bool,
+        viewData: TickerViewData,
         didTapLikeButton: (() -> Void)? = nil
     ) {
-        if let icon = icon {
-            iconImageView.image = icon
+        switch viewData.fluctateRateFeeling {
+        case TickerViewData.FluctateRateFeeling.veryHigh:
+            iconLabel.text = "😆"
+        case TickerViewData.FluctateRateFeeling.high:
+            iconLabel.text = "🙂"
+        case TickerViewData.FluctateRateFeeling.low:
+            iconLabel.text = "😭"
+        case TickerViewData.FluctateRateFeeling.veryLow:
+            iconLabel.text = "😱"
         }
         
-        coinNameLabel.text = coinName
+        coinNameLabel.text = viewData.coinName
         
-        let priceAttributedString = NSMutableAttributedString(string: price + "원  ")
+        let priceAttributedString = NSMutableAttributedString(string: viewData.currentPrice + "원  ")
         let fluctateRateAttributedString = NSMutableAttributedString(
-            string: "\(fluctateRate)%",
+            string: "\(viewData.fluctateRate)%",
             attributes: [
-                .foregroundColor: fluctateRate.first == "-" ? UIColor.blue : UIColor.red
+                .foregroundColor: viewData.fluctateRate.first == "-" ? UIColor.blue : UIColor.red
             ]
         )
         
@@ -122,7 +124,7 @@ class CoinCell: UITableViewCell {
         
         priceLabel.attributedText = priceAttributedString
         
-        self.isLiked = isLiked
+        self.isLiked = viewData.isLiked
         likeButton.setImage(
             isLiked ? likedImage : dislikedImage,
             for: .normal
