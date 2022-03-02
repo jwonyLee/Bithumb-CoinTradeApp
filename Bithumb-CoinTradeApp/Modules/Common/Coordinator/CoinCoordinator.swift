@@ -53,7 +53,9 @@ extension CoinCoordinator: PagerCoodinatable {
     }
 
     func showTransactionHistory() {
-        let transactionHistoryViewController = TransactionHistoryViewController(coordinator: self)
+        let viewModel = TransactionHistoryViewModel()
+        
+        let transactionHistoryViewController = TransactionHistoryViewController(coordinator: self, viewModel: viewModel)
         navigationController.pushViewController(transactionHistoryViewController, animated: true)
     }
 }

@@ -10,6 +10,7 @@ import Foundation
 import RxSwift
 
 protocol TransactionHistoryViewModelType {
+    var transactionListObservable: Observable<[TransactionHistoryViewData]> { get }
 }
 
 class TransactionHistoryViewModel: TransactionHistoryViewModelType {
@@ -43,8 +44,8 @@ class TransactionHistoryViewModel: TransactionHistoryViewModelType {
                 averagePrice /= totalQuantity
                 previousSum.quantity = totalQuantity
                 previousSum.price = averagePrice
-                result[result.count].quantity = totalQuantity
-                result[result.count].price = averagePrice
+                result[result.count - 1].quantity = totalQuantity
+                result[result.count - 1].price = averagePrice
             } else {
                 previousSum = TransactionHistoryViewData(transactionDate: transaction.transactionDate, price: Double(transaction.price) ?? 0, quantity: Double(transaction.unitsTraded) ?? 0)
                 result.append(previousSum)

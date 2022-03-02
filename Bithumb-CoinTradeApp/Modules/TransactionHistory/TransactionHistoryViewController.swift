@@ -15,10 +15,28 @@ protocol TransactionHistoryCoodinatable {
 }
 
 final class TransactionHistoryViewController: BaseViewController {
-    private var coordinator: TransactionHistoryCoodinatable
+    private let coordinator: TransactionHistoryCoodinatable
+    private let viewModel: TransactionHistoryViewModelType
+    
+    private let header = UITextView().then {
+        $0.text = "시간, 가격, 채결량"
+        $0.sizeToFit()
+    }
+    
+    private lazy var tableView = UITableView().then {
+        $0.rowHeight = 20
+        $0.tableHeaderView = header
+    }
+    
+    private var dataSource: UITableViewDiffableDataSource<Int, TransactionHistoryViewData>?
 
-    init(coordinator: TransactionHistoryCoodinatable) {
+    init(
+        coordinator: TransactionHistoryCoodinatable,
+        viewModel: TransactionHistoryViewModelType
+    ) {
         self.coordinator = coordinator
+        self.viewModel = viewModel
+        
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -33,15 +51,55 @@ final class TransactionHistoryViewController: BaseViewController {
     // MARK: - setUI
     
     override func setUI() {
+        view.addSubview(tableView)
+        
+        configureDataSource()
     }
     
     // MARK: - setConstraint
     
     override func setConstraint() {
+        tableView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
+    
+    // MARK: - bind
+    
+    override func bind() {
+        viewModel.transactionListObservable
+            .asDriver(onErrorJustReturn: [])
+            .drive(with: self, onNext: { owner, transactionHistory in
+                owner.loadHistory(transactionHistory)
+            })
+            .disposed(by: disposeBag)
     }
     
     // MARK: - subscribeUI
     
     override func subscribeUI() {
+    }
+    
+    // MARK: - Helpers
+    
+    private func configureDataSource() {
+        dataSource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { tableView, indexPath, itemIdentifier in
+            let cell = UITableViewCell()
+            
+            cell.textLabel?.text = "\(itemIdentifier.transactionDate) \(itemIdentifier.price) \(itemIdentifier.quantity)"
+            
+            return cell
+        })
+        
+        dataSource?.defaultRowAnimation = .none
+        tableView.dataSource = dataSource
+    }
+    
+    private func loadHistory(_ transactionHistory: [TransactionHistoryViewData]) {
+        var snapShot = NSDiffableDataSourceSnapshot<Int, TransactionHistoryViewData>()
+        snapShot.appendSections([0])
+        snapShot.appendItems(transactionHistory)
+        
+        dataSource?.apply(snapShot)
     }
 }
