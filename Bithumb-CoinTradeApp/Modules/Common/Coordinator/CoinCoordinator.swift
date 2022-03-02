@@ -20,7 +20,9 @@ final class CoinCoordinator: Coordinator {
         coinListViewController.tabBarItem = UITabBarItem(title: "코인 목록",
                                                          image: nil,
                                                          selectedImage: nil)
-        let leaderBoardViewController = LeaderBoardViewController()
+        let repository: RESTAPIRepositable = RESTAPIRepository()
+        let leaderBoardViewModel: LeaderBoardViewModelType = LeaderBoardViewModel(repository: repository)
+        let leaderBoardViewController = LeaderBoardViewController(viewModel: leaderBoardViewModel)
         leaderBoardViewController.tabBarItem = UITabBarItem(title: "입출금 현황",
                                                             image: nil,
                                                             selectedImage: nil)
