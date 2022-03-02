@@ -45,9 +45,9 @@ final class LabelWithRoundImageView: UIView {
         fatalError("init?(coder:) has not implemented.")
     }
 
-    func configure(text: String?, image: UIImage?) {
+    func configure(text: String?, image: UIImage?, imageColor: UIColor) {
         label.text = text
-        imageView.image = image
+        imageView.image = image?.withTintColor(imageColor, renderingMode: .alwaysOriginal)
     }
 
     private func setupUI() {

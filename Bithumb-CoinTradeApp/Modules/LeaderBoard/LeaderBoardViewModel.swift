@@ -14,6 +14,7 @@ protocol LeaderBoardViewModelType {
     var disposeBag: DisposeBag { get set }
     var assetStatusRelay: BehaviorRelay<AssetStatus?> { get set }
     var repository: RESTAPIRepositable { get set }
+    func fetchAssetStatus()
 }
 
 final class LeaderBoardViewModel: LeaderBoardViewModelType {
@@ -26,5 +27,14 @@ final class LeaderBoardViewModel: LeaderBoardViewModelType {
 
     init(repository: RESTAPIRepositable) {
         self.repository = repository
+        fetchAssetStatus()
+    }
+
+    func fetchAssetStatus() {
+        repository.requestAssetStatus(orderCurrency: "ALL")
+            .subscribe(with: self) { owner, assetStatus in
+                owner.assetStatusRelay.accept(assetStatus)
+            }
+            .disposed(by: disposeBag)
     }
 }
