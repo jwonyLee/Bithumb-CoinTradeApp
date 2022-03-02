@@ -16,13 +16,42 @@ class TransactionHistoryViewModel: TransactionHistoryViewModelType {
     private let disposeBag = DisposeBag()
     
     private var transactionList = [TransactionHistoryData]()
+    private var transactionViewDataList = [TransactionHistoryViewData]()
+    private let transactionListViewDataSubject = BehaviorSubject<[TransactionHistoryViewData]>(value: [])
+    
+    var transactionListObservable: Observable<[TransactionHistoryViewData]> { transactionListViewDataSubject }
     
     init() {
         transactionList = loadData()
+        transactionViewDataList = makeViewData(transactionList)
+        transactionListViewDataSubject.onNext(transactionViewDataList)
     }
     
     private func loadData() -> [TransactionHistoryData] {
         return sampleData
+    }
+    
+    private func makeViewData(_ transactionList: [TransactionHistoryData]) -> [TransactionHistoryViewData] {
+        var result = [TransactionHistoryViewData]()
+        
+        var previousSum = TransactionHistoryViewData(transactionDate: "", price: 0, quantity: 0)
+        for transaction in transactionList {
+            if previousSum.transactionDate == transaction.transactionDate {
+                let totalQuantity = previousSum.quantity + (Double(transaction.unitsTraded) ?? 0)
+                var averagePrice = previousSum.price * previousSum.quantity
+                averagePrice += (Double(transaction.unitsTraded) ?? 0) * (Double(transaction.price) ?? 0)
+                averagePrice /= totalQuantity
+                previousSum.quantity = totalQuantity
+                previousSum.price = averagePrice
+                result[result.count].quantity = totalQuantity
+                result[result.count].price = averagePrice
+            } else {
+                previousSum = TransactionHistoryViewData(transactionDate: transaction.transactionDate, price: Double(transaction.price) ?? 0, quantity: Double(transaction.unitsTraded) ?? 0)
+                result.append(previousSum)
+            }
+        }
+        
+        return result
     }
 }
 
