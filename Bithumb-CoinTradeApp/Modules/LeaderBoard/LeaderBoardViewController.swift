@@ -20,7 +20,6 @@ final class LeaderBoardViewController: BaseViewController {
     }
 
     // MARK: - Properties
-    private let data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     private var viewModel: LeaderBoardViewModelType
 
     init(viewModel: LeaderBoardViewModelType) {
@@ -55,25 +54,18 @@ final class LeaderBoardViewController: BaseViewController {
     }
 
     override func bind() {
-        NotificationCenter.default.rx
-            .notification(UIContentSizeCategory.didChangeNotification, object: nil)
-            .subscribe(with: self) { owner, _ in
-                DispatchQueue.main.async {
-                    owner.tableView.reloadData()
+        viewModel.assetStatusRelay
+            .compactMap { $0?.data }
+            .bind(to: tableView.rx.items(cellIdentifier: LeaderBoardTableViewCell.reuseIdentifier, cellType: LeaderBoardTableViewCell.self)) { _, element, cell in
+                guard let value = element.value else {
+                    return
                 }
+                let canDeposit = value.depositStatus == 1 ? true : false
+                let canWithDrawal = value.withdrawalStatus == 1 ? true : false
+                cell.configure(name: element.key, canDeposit: canDeposit, canWithDrawal: canWithDrawal)
             }
             .disposed(by: disposeBag)
     }
 
-    override func subscribeUI() {
-        let dataObservable = Observable.of(data)
-        dataObservable.bind(to: tableView.rx.items) { tableView, _, element in
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: LeaderBoardTableViewCell.reuseIdentifier) as? LeaderBoardTableViewCell else { return LeaderBoardTableViewCell() }
-
-            cell.configure(name: "비트코인 \(element)")
-
-            return cell
-        }
-        .disposed(by: disposeBag)
-    }
+    override func subscribeUI() {}
 }

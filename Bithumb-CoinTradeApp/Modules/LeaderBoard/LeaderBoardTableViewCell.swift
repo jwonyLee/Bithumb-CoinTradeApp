@@ -55,15 +55,23 @@ final class LeaderBoardTableViewCell: UITableViewCell {
         }
     }
 
-    func configure(name: String) {
+    func configure(name: String, canDeposit: Bool, canWithDrawal: Bool) {
         titleLabel.text = name
+        topDescriptionLabel.configure(
+            text: "입금 가능",
+            image: canDeposit ? UIImage(systemName: "checkmark.circle") : UIImage(systemName: "xmark.circle"),
+            imageColor: canDeposit ? .systemGreen : .systemRed
+        )
+        bottomDescriptionLabel.configure(
+            text: "출금 가능",
+            image: canWithDrawal ? UIImage(systemName: "checkmark.circle") : UIImage(systemName: "xmark.circle"),
+            imageColor: canWithDrawal ? .systemGreen : .systemRed
+        )
     }
 
     private func setUI() {
         contentView.addSubviews(iconImageView, titleLabel, descriptionStack)
 
-        topDescriptionLabel.configure(text: "입금 가능", image: UIImage(systemName: "checkmark.circle"))
-        bottomDescriptionLabel.configure(text: "출금 가능", image: UIImage(systemName: "xmark.circle"))
         // TODO: 동적으로 accessibilityLabel 변경
         topDescriptionLabel.accessibilityLabel = "입금 가능"
         bottomDescriptionLabel.accessibilityLabel = "출금 불가능"
