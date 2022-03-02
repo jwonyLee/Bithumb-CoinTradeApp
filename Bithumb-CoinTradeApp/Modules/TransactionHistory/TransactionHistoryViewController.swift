@@ -24,7 +24,8 @@ final class TransactionHistoryViewController: BaseViewController {
     }
     
     private lazy var tableView = UITableView().then {
-        $0.rowHeight = 20
+        $0.register(TransactionHistoryCell.self, forCellReuseIdentifier: TransactionHistoryCell.reuseIdentifier)
+        $0.rowHeight = 30
         $0.tableHeaderView = header
     }
     
@@ -84,9 +85,10 @@ final class TransactionHistoryViewController: BaseViewController {
     
     private func configureDataSource() {
         dataSource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { tableView, indexPath, itemIdentifier in
-            let cell = UITableViewCell()
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: TransactionHistoryCell.reuseIdentifier, for: indexPath) as? TransactionHistoryCell else { return UITableViewCell() }
             
-            cell.textLabel?.text = "\(itemIdentifier.transactionDate) \(itemIdentifier.price) \(itemIdentifier.quantity)"
+            let random = Int.random(in: 0...1)
+            cell.configure(viewData: itemIdentifier, isRised: random == 0 ? true : false)
             
             return cell
         })
