@@ -33,6 +33,7 @@
 		87CCA58827CDCC6F00C5E022 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CCA58727CDCC6F00C5E022 /* UIView+.swift */; };
 		87CCA58A27CDCD5A00C5E022 /* LeaderBoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CCA58927CDCD5A00C5E022 /* LeaderBoardTableViewCell.swift */; };
 		87CCA58E27CDD99E00C5E022 /* LabelWithRoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CCA58D27CDD99E00C5E022 /* LabelWithRoundImageView.swift */; };
+		87E7A78527CFA9F700D8C3D9 /* LeaderBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E7A78427CFA9F700D8C3D9 /* LeaderBoardViewModel.swift */; };
 		87F002D427C9206B001E8BDC /* TickerAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F002D327C9206B001E8BDC /* TickerAll.swift */; };
 		87F002D627C9209F001E8BDC /* TickerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F002D527C9209F001E8BDC /* TickerData.swift */; };
 		9ECD99F2826A66425CB92D64 /* Pods_Bithumb_CoinTradeApp_Bithumb_CoinTradeAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4124A3D8295AA7391DD0913F /* Pods_Bithumb_CoinTradeApp_Bithumb_CoinTradeAppUITests.framework */; };
@@ -92,6 +93,7 @@
 		87CCA58727CDCC6F00C5E022 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		87CCA58927CDCD5A00C5E022 /* LeaderBoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardTableViewCell.swift; sourceTree = "<group>"; };
 		87CCA58D27CDD99E00C5E022 /* LabelWithRoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithRoundImageView.swift; sourceTree = "<group>"; };
+		87E7A78427CFA9F700D8C3D9 /* LeaderBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardViewModel.swift; sourceTree = "<group>"; };
 		87F002D327C9206B001E8BDC /* TickerAll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerAll.swift; sourceTree = "<group>"; };
 		87F002D527C9209F001E8BDC /* TickerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerData.swift; sourceTree = "<group>"; };
 		9C3845E40234E189BCDFF1D4 /* Pods-Bithumb-CoinTradeApp-Bithumb-CoinTradeAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bithumb-CoinTradeApp-Bithumb-CoinTradeAppUITests.release.xcconfig"; path = "Target Support Files/Pods-Bithumb-CoinTradeApp-Bithumb-CoinTradeAppUITests/Pods-Bithumb-CoinTradeApp-Bithumb-CoinTradeAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -286,9 +288,10 @@
 		87C6B43D27C65EC000F880DE /* LeaderBoard */ = {
 			isa = PBXGroup;
 			children = (
-				87C6B44027C65EF700F880DE /* LeaderBoardViewController.swift */,
-				87CCA58927CDCD5A00C5E022 /* LeaderBoardTableViewCell.swift */,
 				87CCA58D27CDD99E00C5E022 /* LabelWithRoundImageView.swift */,
+				87CCA58927CDCD5A00C5E022 /* LeaderBoardTableViewCell.swift */,
+				87C6B44027C65EF700F880DE /* LeaderBoardViewController.swift */,
+				87E7A78427CFA9F700D8C3D9 /* LeaderBoardViewModel.swift */,
 			);
 			path = LeaderBoard;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 				0082D8ED27C9164500E65E72 /* TransactionHistory.swift in Sources */,
 				0082D8E427C9153B00E65E72 /* AssetStatus.swift in Sources */,
 				0082D8EB27C9163C00E65E72 /* OrderBook.swift in Sources */,
+				87E7A78527CFA9F700D8C3D9 /* LeaderBoardViewModel.swift in Sources */,
 				87C6B43F27C65EED00F880DE /* CoinListViewController.swift in Sources */,
 				87C6B44627C6640800F880DE /* PagerViewController.swift in Sources */,
 				87C6B43B27C65DDA00F880DE /* MainTabBarViewController.swift in Sources */,

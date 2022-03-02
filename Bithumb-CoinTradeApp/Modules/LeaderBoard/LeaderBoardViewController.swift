@@ -21,6 +21,16 @@ final class LeaderBoardViewController: BaseViewController {
 
     // MARK: - Properties
     private let data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    private var viewModel: LeaderBoardViewModelType
+
+    init(viewModel: LeaderBoardViewModelType) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init?(coder:) has not implemented.")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
