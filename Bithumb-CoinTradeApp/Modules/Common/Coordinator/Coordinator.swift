@@ -9,7 +9,7 @@ import UIKit
 
 protocol Coordinator {
     var navigationController: UINavigationController { get set }
-    
+    var repository: RESTAPIRepositable { get set }
     func start()
     func back()
 }

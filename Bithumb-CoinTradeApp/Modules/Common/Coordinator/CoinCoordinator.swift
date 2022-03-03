@@ -9,9 +9,11 @@ import UIKit
 
 final class CoinCoordinator: Coordinator {
     var navigationController: UINavigationController
+    var repository: RESTAPIRepositable
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
+        self.repository = RESTAPIRepository()
     }
     
     func start() {
@@ -20,7 +22,6 @@ final class CoinCoordinator: Coordinator {
         coinListViewController.tabBarItem = UITabBarItem(title: "코인 목록",
                                                          image: nil,
                                                          selectedImage: nil)
-        let repository: RESTAPIRepositable = RESTAPIRepository()
         let leaderBoardViewModel: LeaderBoardViewModelType = LeaderBoardViewModel(repository: repository)
         let leaderBoardViewController = LeaderBoardViewController(viewModel: leaderBoardViewModel)
         leaderBoardViewController.tabBarItem = UITabBarItem(title: "입출금 현황",

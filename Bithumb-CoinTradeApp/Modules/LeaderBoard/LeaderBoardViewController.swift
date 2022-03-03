@@ -35,6 +35,11 @@ final class LeaderBoardViewController: BaseViewController {
         super.viewDidLoad()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.fetchAssetStatus()
+    }
+
     override func setUI() {
         navigationItem.searchController = searchController
         view.addSubview(tableView)
@@ -56,7 +61,10 @@ final class LeaderBoardViewController: BaseViewController {
     override func bind() {
         viewModel.assetStatusRelay
             .compactMap { $0?.data }
-            .bind(to: tableView.rx.items(cellIdentifier: LeaderBoardTableViewCell.reuseIdentifier, cellType: LeaderBoardTableViewCell.self)) { _, element, cell in
+            .bind(to: tableView.rx.items(
+                cellIdentifier: LeaderBoardTableViewCell.reuseIdentifier,
+                cellType: LeaderBoardTableViewCell.self
+            )) { _, element, cell in
                 guard let value = element.value else {
                     return
                 }
