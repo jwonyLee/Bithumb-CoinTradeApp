@@ -13,7 +13,6 @@ import RxRelay
 protocol LeaderBoardViewModelType {
     var disposeBag: DisposeBag { get set }
     var assetStatusRelay: BehaviorRelay<AssetStatus?> { get set }
-    var repository: RESTAPIRepositable { get set }
     func fetchAssetStatus()
 }
 
@@ -23,7 +22,7 @@ final class LeaderBoardViewModel: LeaderBoardViewModelType {
     var assetStatusRelay: BehaviorRelay<AssetStatus?> = BehaviorRelay<AssetStatus?>(value: nil)
 
     // MARK: - Properties
-    var repository: RESTAPIRepositable
+    private var repository: RESTAPIRepositable
 
     init(repository: RESTAPIRepositable) {
         self.repository = repository
