@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		003F5E5727D10C4A001D76C2 /* WebSocketRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003F5E5627D10C4A001D76C2 /* WebSocketRepository.swift */; };
 		0082D8E127C7CE8D00E65E72 /* RESTAPIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082D8E027C7CE8D00E65E72 /* RESTAPIRepository.swift */; };
 		0082D8E427C9153B00E65E72 /* AssetStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082D8E327C9153B00E65E72 /* AssetStatus.swift */; };
 		0082D8E727C9158C00E65E72 /* GeneralCodingKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082D8E627C9158C00E65E72 /* GeneralCodingKeys.swift */; };
@@ -70,6 +71,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		003F5E5627D10C4A001D76C2 /* WebSocketRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketRepository.swift; sourceTree = "<group>"; };
 		0082D8E027C7CE8D00E65E72 /* RESTAPIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTAPIRepository.swift; sourceTree = "<group>"; };
 		0082D8E327C9153B00E65E72 /* AssetStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetStatus.swift; sourceTree = "<group>"; };
 		0082D8E627C9158C00E65E72 /* GeneralCodingKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralCodingKeys.swift; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 				E5F5659D27C7C8CA0002599F /* Endpoint.swift */,
 				E5F565A027C7C8F20002599F /* BithumbEndpointCases.swift */,
 				0082D8E027C7CE8D00E65E72 /* RESTAPIRepository.swift */,
+				003F5E5627D10C4A001D76C2 /* WebSocketRepository.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -650,6 +653,7 @@
 				E598E56E27CF5A21006D7659 /* TransactionHistoryData.swift in Sources */,
 				87E7A78527CFA9F700D8C3D9 /* LeaderBoardViewModel.swift in Sources */,
 				87C6B43F27C65EED00F880DE /* CoinListViewController.swift in Sources */,
+				003F5E5727D10C4A001D76C2 /* WebSocketRepository.swift in Sources */,
 				87C6B44627C6640800F880DE /* PagerViewController.swift in Sources */,
 				87C6B43B27C65DDA00F880DE /* MainTabBarViewController.swift in Sources */,
 				87F002D627C9209F001E8BDC /* TickerData.swift in Sources */,
