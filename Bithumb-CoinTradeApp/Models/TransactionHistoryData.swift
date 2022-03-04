@@ -7,12 +7,12 @@
 
 import Foundation
 
+enum TransactionType: String, Codable {
+    case bid
+    case ask
+}
+
 struct TransactionHistoryData: Codable {
-    enum TransactionType: String, Codable {
-        case bid
-        case ask
-    }
-    
     let transactionDate: String         // ex) 2018-04-10 17:47:46
     let type: TransactionType
     let unitsTraded: String

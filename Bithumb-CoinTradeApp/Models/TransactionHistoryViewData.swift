@@ -9,6 +9,7 @@ import Foundation
 
 struct TransactionHistoryViewData: Hashable {
     let transactionDate: String
-    var price: Double
-    var quantity: Double
+    let price: Double
+    let quantity: Double
+    let type: TransactionType
 }

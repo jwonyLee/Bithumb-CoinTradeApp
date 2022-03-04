@@ -87,8 +87,7 @@ final class TransactionHistoryViewController: BaseViewController {
         dataSource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { tableView, indexPath, itemIdentifier in
             guard let cell = tableView.dequeueReusableCell(withIdentifier: TransactionHistoryCell.reuseIdentifier, for: indexPath) as? TransactionHistoryCell else { return UITableViewCell() }
             
-            let random = Int.random(in: 0...1)
-            cell.configure(viewData: itemIdentifier, isRised: random == 0 ? true : false)
+            cell.configure(viewData: itemIdentifier)
             
             return cell
         })

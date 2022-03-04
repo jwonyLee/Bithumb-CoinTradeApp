@@ -54,15 +54,14 @@ class TransactionHistoryCell: UITableViewCell {
     }
     
     func configure(
-        viewData: TransactionHistoryViewData,
-        isRised: Bool
+        viewData: TransactionHistoryViewData
     ) {
         dateLabel.text = viewData.transactionDate
         
         priceLabel.text = String(format: "%.0f", viewData.price)
         quantityLabel.text = String(format: "%.4f", viewData.quantity)
         
-        if isRised {
+        if viewData.type == .bid {
             priceLabel.textColor = .red
             quantityLabel.textColor = .red
         } else {

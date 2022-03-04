@@ -35,7 +35,7 @@ class TransactionHistoryViewModel: TransactionHistoryViewModelType {
     private func makeViewData(_ transactionList: [TransactionHistoryData]) -> [TransactionHistoryViewData] {
         var result = [TransactionHistoryViewData]()
         transactionList.forEach { transaction in
-            result.append(TransactionHistoryViewData(transactionDate: transaction.transactionDate, price: Double(transaction.price) ?? 0, quantity: Double(transaction.unitsTraded) ?? 0))
+            result.append(TransactionHistoryViewData(transactionDate: transaction.transactionDate, price: Double(transaction.price) ?? 0, quantity: Double(transaction.unitsTraded) ?? 0, type: transaction.type))
         }
         
         return result
