@@ -34,22 +34,8 @@ class TransactionHistoryViewModel: TransactionHistoryViewModelType {
     
     private func makeViewData(_ transactionList: [TransactionHistoryData]) -> [TransactionHistoryViewData] {
         var result = [TransactionHistoryViewData]()
-        
-        var previousSum = TransactionHistoryViewData(transactionDate: "", price: 0, quantity: 0)
-        for transaction in transactionList {
-            if previousSum.transactionDate == transaction.transactionDate {
-                let totalQuantity = previousSum.quantity + (Double(transaction.unitsTraded) ?? 0)
-                var averagePrice = previousSum.price * previousSum.quantity
-                averagePrice += (Double(transaction.unitsTraded) ?? 0) * (Double(transaction.price) ?? 0)
-                averagePrice /= totalQuantity
-                previousSum.quantity = totalQuantity
-                previousSum.price = averagePrice
-                result[result.count - 1].quantity = totalQuantity
-                result[result.count - 1].price = averagePrice
-            } else {
-                previousSum = TransactionHistoryViewData(transactionDate: transaction.transactionDate, price: Double(transaction.price) ?? 0, quantity: Double(transaction.unitsTraded) ?? 0)
-                result.append(previousSum)
-            }
+        transactionList.forEach { transaction in
+            result.append(TransactionHistoryViewData(transactionDate: transaction.transactionDate, price: Double(transaction.price) ?? 0, quantity: Double(transaction.unitsTraded) ?? 0))
         }
         
         return result
