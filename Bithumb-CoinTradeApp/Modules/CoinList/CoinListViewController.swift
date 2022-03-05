@@ -219,6 +219,7 @@ final class CoinListViewController: BaseViewController {
         
         dataSource?.defaultRowAnimation = .none
         tableView.dataSource = dataSource
+        tableView.delegate = self
     }
     
     private func loadCoins(_ coins: [TickerViewData]) {
@@ -231,5 +232,11 @@ final class CoinListViewController: BaseViewController {
     
     private func didTapLikeButton(_ coinName: String) {
         viewModel.changeLikeState(coinName)
+    }
+}
+
+extension CoinListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        coordinator.showPager()
     }
 }

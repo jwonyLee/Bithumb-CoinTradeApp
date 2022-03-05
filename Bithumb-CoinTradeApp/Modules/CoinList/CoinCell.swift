@@ -9,7 +9,6 @@ import UIKit
 import RxSwift
 
 class CoinCell: UITableViewCell {
-    static let reuseIdentifier = NSStringFromClass(CoinCell.self)
     private var disposeBag = DisposeBag()
     
     private let iconLabel = UILabel().then {

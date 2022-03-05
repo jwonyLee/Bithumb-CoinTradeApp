@@ -9,7 +9,6 @@ import UIKit
 import RxSwift
 
 class TransactionHistoryCell: UITableViewCell {
-    static let reuseIdentifier = NSStringFromClass(TransactionHistoryCell.self)
     private var disposeBag = DisposeBag()
     
     private let dateLabel = UILabel().then {
