@@ -42,6 +42,11 @@ extension CoinCoordinator: CoinListCoordinatable {
     }
 }
 
+// MARK: - TransactionHistoryCoodinatable
+extension CoinCoordinator: TransactionHistoryCoodinatable {
+    
+}
+
 // MARK: - PagerCoordinatable
 extension CoinCoordinator: PagerCoodinatable {
     func showChart() {
@@ -53,6 +58,9 @@ extension CoinCoordinator: PagerCoodinatable {
     }
 
     func showTransactionHistory() {
-        //
+        let viewModel = TransactionHistoryViewModel()
+        
+        let transactionHistoryViewController = TransactionHistoryViewController(coordinator: self, viewModel: viewModel)
+        navigationController.pushViewController(transactionHistoryViewController, animated: true)
     }
 }
