@@ -9,18 +9,23 @@ import UIKit
 
 final class CoinCoordinator: Coordinator {
     var navigationController: UINavigationController
+    var repository: RESTAPIRepositable
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
+        self.repository = RESTAPIRepository()
     }
     
     func start() {
         let mainTabBarViewController = MainTabBarViewController()
-        let coinListViewController = CoinListViewController(coordinator: self)
+        let coinListViewModel = CoinListViewModel()
+        let coinListViewController = CoinListViewController(coordinator: self, viewModel: coinListViewModel)
+        
         coinListViewController.tabBarItem = UITabBarItem(title: "코인 목록",
                                                          image: nil,
                                                          selectedImage: nil)
-        let leaderBoardViewController = LeaderBoardViewController()
+        let leaderBoardViewModel: LeaderBoardViewModelType = LeaderBoardViewModel(repository: repository)
+        let leaderBoardViewController = LeaderBoardViewController(viewModel: leaderBoardViewModel)
         leaderBoardViewController.tabBarItem = UITabBarItem(title: "입출금 현황",
                                                             image: nil,
                                                             selectedImage: nil)
