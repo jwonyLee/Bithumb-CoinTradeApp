@@ -10,22 +10,18 @@ import Foundation
 import Starscream
 import RxSwift
 
-enum SubscriptionType {
-    case ticker
-    case transaction
-    case orderbookDepth
-}
-
 protocol WebSocketRepositable {
-    func requestSubscribe(
+    
+    func requestData(
         type: SubscriptionType,
         coinNames: [String],
         paymentCurrency: PaymentCurrency
-    )
+    ) -> Observable<String>
 }
 
 final class WebSocketRepository: WebSocketRepositable {
     private let socket: WebSocket
+    private let responseSubject: BehaviorSubject<String> = .init(value: "")
     
     init() {
         var request = URLRequest(url: URL(string: "wss://pubwss.bithumb.com/pub/ws")!)
@@ -36,21 +32,31 @@ final class WebSocketRepository: WebSocketRepositable {
         socket.connect()
     }
     
-    func requestSubscribe(
+    func requestData(
         type: SubscriptionType,
         coinNames: [String],  // "BTC", "ETH"
         paymentCurrency: PaymentCurrency
-    ) {
-        let symbols = coinNames
+    ) -> Observable<String> {
+        
+        let symbols = makeSymbols(coinNames: coinNames, paymentCurrency: paymentCurrency)
+        requestSubcription(type: type, symbols: symbols)
+        
+        return responseSubject
+    }
+    
+    private func makeSymbols(coinNames: [String], paymentCurrency: PaymentCurrency) -> String {
+        return coinNames
             .map { "\"\($0)_\(paymentCurrency.rawValue)\"" }
             .joined(separator: ",")
-        
+    }
+    
+    private func requestSubcription(type: SubscriptionType, symbols: String) {
         var requestMessage: String = ""
 
         switch type {
         case .ticker:
             requestMessage = """
-            {"type":"ticker", "symbols": [\(symbols)], "tickTypes": ["30M", "1H", "12H", "24H", "MID" ]}
+            {"type":"ticker", "symbols": [\(symbols)], "tickTypes": ["30M"]}
             """
         case .transaction:
             requestMessage = """
@@ -70,6 +76,21 @@ final class WebSocketRepository: WebSocketRepositable {
             self.socket.connect()
         }
     }
+    
+    private func handleResponse(_ response: String) {
+        if let data = response.data(using: .utf8),
+           let initResponse = try? JSONDecoder().decode(WebSocketInitResponse.self, from: data)
+        {
+            guard initResponse.status == "0000" else {
+                responseSubject.onError(WebSocketError.invalidFilter)
+                return
+            }
+            
+            return
+        }
+
+        responseSubject.onNext(response)
+    }
 }
 
 // MARK: - WebSocketDelegate
@@ -83,8 +104,8 @@ extension WebSocketRepository: WebSocketDelegate {
         case .disconnected:
             connect()
             break
-        case .text(let string):
-            print("Received text: \(string)")
+        case .text(let response):
+            handleResponse(response)
         case .binary:
             break
         case .pong:

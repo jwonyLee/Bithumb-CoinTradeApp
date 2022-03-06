@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0026D85B27D4995B00B40A6F /* TickerWebSocketResponse.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0026D85A27D4995B00B40A6F /* TickerWebSocketResponse.swift.swift */; };
+		0026D85D27D4997000B40A6F /* TickerWebSocketData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0026D85C27D4997000B40A6F /* TickerWebSocketData.swift */; };
+		0026D86027D4A01200B40A6F /* WebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0026D85F27D4A01200B40A6F /* WebSocketService.swift */; };
+		0026D86227D4A36A00B40A6F /* WebSocketInitResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0026D86127D4A36A00B40A6F /* WebSocketInitResponse.swift */; };
+		0026D86427D4B46F00B40A6F /* WebSocketError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0026D86327D4B46F00B40A6F /* WebSocketError.swift */; };
 		003F5E5727D10C4A001D76C2 /* WebSocketRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003F5E5627D10C4A001D76C2 /* WebSocketRepository.swift */; };
 		0082D8E127C7CE8D00E65E72 /* RESTAPIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082D8E027C7CE8D00E65E72 /* RESTAPIRepository.swift */; };
 		0082D8E427C9153B00E65E72 /* AssetStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082D8E327C9153B00E65E72 /* AssetStatus.swift */; };
@@ -71,6 +76,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0026D85A27D4995B00B40A6F /* TickerWebSocketResponse.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerWebSocketResponse.swift.swift; sourceTree = "<group>"; };
+		0026D85C27D4997000B40A6F /* TickerWebSocketData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerWebSocketData.swift; sourceTree = "<group>"; };
+		0026D85F27D4A01200B40A6F /* WebSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketService.swift; sourceTree = "<group>"; };
+		0026D86127D4A36A00B40A6F /* WebSocketInitResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketInitResponse.swift; sourceTree = "<group>"; };
+		0026D86327D4B46F00B40A6F /* WebSocketError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketError.swift; sourceTree = "<group>"; };
 		003F5E5627D10C4A001D76C2 /* WebSocketRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketRepository.swift; sourceTree = "<group>"; };
 		0082D8E027C7CE8D00E65E72 /* RESTAPIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTAPIRepository.swift; sourceTree = "<group>"; };
 		0082D8E327C9153B00E65E72 /* AssetStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetStatus.swift; sourceTree = "<group>"; };
@@ -155,6 +165,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0026D85E27D4998D00B40A6F /* WebSocket */ = {
+			isa = PBXGroup;
+			children = (
+				0026D85A27D4995B00B40A6F /* TickerWebSocketResponse.swift.swift */,
+				0026D85C27D4997000B40A6F /* TickerWebSocketData.swift */,
+				0026D86127D4A36A00B40A6F /* WebSocketInitResponse.swift */,
+			);
+			path = WebSocket;
+			sourceTree = "<group>";
+		};
+		0026D86527D4B48100B40A6F /* WebSocket */ = {
+			isa = PBXGroup;
+			children = (
+				0026D85F27D4A01200B40A6F /* WebSocketService.swift */,
+				003F5E5627D10C4A001D76C2 /* WebSocketRepository.swift */,
+				0026D86327D4B46F00B40A6F /* WebSocketError.swift */,
+			);
+			path = WebSocket;
+			sourceTree = "<group>";
+		};
 		0082D8E227C9152400E65E72 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,9 +195,7 @@
 				0082D8EC27C9164500E65E72 /* TransactionHistory.swift */,
 				E598E56D27CF5A21006D7659 /* TransactionHistoryData.swift */,
 				E598E56B27CF55BC006D7659 /* TransactionHistoryViewData.swift */,
-				0082D8E827C915F200E65E72 /* Ticker.swift */,
-				87F002D327C9206B001E8BDC /* TickerAll.swift */,
-				87F002D527C9209F001E8BDC /* TickerData.swift */,
+				0026D85E27D4998D00B40A6F /* WebSocket */,
 				0082D8E827C915F200E65E72 /* Ticker.swift */,
 				87F002D327C9206B001E8BDC /* TickerAll.swift */,
 				87F002D527C9209F001E8BDC /* TickerData.swift */,
@@ -365,7 +393,7 @@
 				E5F5659D27C7C8CA0002599F /* Endpoint.swift */,
 				E5F565A027C7C8F20002599F /* BithumbEndpointCases.swift */,
 				0082D8E027C7CE8D00E65E72 /* RESTAPIRepository.swift */,
-				003F5E5627D10C4A001D76C2 /* WebSocketRepository.swift */,
+				0026D86527D4B48100B40A6F /* WebSocket */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -628,6 +656,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0026D86427D4B46F00B40A6F /* WebSocketError.swift in Sources */,
 				E598E56A27CF5272006D7659 /* TransactionHistoryViewModel.swift in Sources */,
 				0082D8E127C7CE8D00E65E72 /* RESTAPIRepository.swift in Sources */,
 				87C6B43427C6599300F880DE /* Coordinator.swift in Sources */,
@@ -653,6 +682,7 @@
 				E598E56E27CF5A21006D7659 /* TransactionHistoryData.swift in Sources */,
 				87E7A78527CFA9F700D8C3D9 /* LeaderBoardViewModel.swift in Sources */,
 				87C6B43F27C65EED00F880DE /* CoinListViewController.swift in Sources */,
+				0026D86027D4A01200B40A6F /* WebSocketService.swift in Sources */,
 				003F5E5727D10C4A001D76C2 /* WebSocketRepository.swift in Sources */,
 				87C6B44627C6640800F880DE /* PagerViewController.swift in Sources */,
 				87C6B43B27C65DDA00F880DE /* MainTabBarViewController.swift in Sources */,
@@ -660,12 +690,15 @@
 				87C6B44327C660C500F880DE /* BaseViewController.swift in Sources */,
 				0082D8E927C915F200E65E72 /* Ticker.swift in Sources */,
 				87F002D427C9206B001E8BDC /* TickerAll.swift in Sources */,
+				0026D86227D4A36A00B40A6F /* WebSocketInitResponse.swift in Sources */,
 				878D0EFD27C4F3B40006D255 /* AppDelegate.swift in Sources */,
 				0082D91527CE5BE700E65E72 /* TickerViewData.swift.swift in Sources */,
 				0082D8EF27CB2C5E00E65E72 /* CoinCell.swift in Sources */,
+				0026D85B27D4995B00B40A6F /* TickerWebSocketResponse.swift.swift in Sources */,
 				87C6B44127C65EF700F880DE /* LeaderBoardViewController.swift in Sources */,
 				E5F565A527C924180002599F /* OrderBookAll.swift in Sources */,
 				E5F5659E27C7C8CA0002599F /* Endpoint.swift in Sources */,
+				0026D85D27D4997000B40A6F /* TickerWebSocketData.swift in Sources */,
 				E5F565A327C924120002599F /* OrderBookData.swift in Sources */,
 				87CCA58A27CDCD5A00C5E022 /* LeaderBoardTableViewCell.swift in Sources */,
 				E5F565A527C924180002599F /* OrderBookAll.swift in Sources */,
