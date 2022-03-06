@@ -12,27 +12,33 @@ import RxSwift
 
 protocol RESTAPIRepositable {
     func requestAssetStatus(orderCurrency: String) -> Single<AssetStatus>
-    
+
     func requestTransactionHistory(
         orderCurrency: String,
         paymentCurrency: PaymentCurrency
     ) -> Single<TransactionHistory>
-    
+
     func requestOrderBook(
         orderCurrency: String,
         paymentCurrency: PaymentCurrency
     ) -> Single<OrderBook>
-    
+
     func requestAllOrderBook(
         paymentCurrency: PaymentCurrency
     ) -> Single<OrderBookAll>
-    
+
     func requestAllTicker(paymentCurrency: PaymentCurrency) -> Single<TickerAll>
-    
+
     func requestTicker(
         orderCurrency: String,
         paymentCurrency: PaymentCurrency
     ) -> Single<Ticker>
+
+    func requestCandlestick(
+        orderCurrency: String,
+        paymentCurrency: PaymentCurrency,
+        chartIntervals: ChartIntervals
+    ) -> Single<Candlestick>
 }
 
 extension RESTAPIRepositable {
@@ -53,7 +59,7 @@ extension RESTAPIRepositable {
                         observer(.failure(error))
                     }
                 }
-            
+
             return Disposables.create { request.cancel() }
         }
     }
@@ -62,11 +68,10 @@ extension RESTAPIRepositable {
 // MARK: - RESTAPIRepository
 
 final class RESTAPIRepository: RESTAPIRepositable {
-    
     func requestAssetStatus(orderCurrency: String) -> Single<AssetStatus> {
         return request(BithumbEndpointCases.assetsStatus(orderCurrency: orderCurrency))
     }
-    
+
     func requestTransactionHistory(
         orderCurrency: String,
         paymentCurrency: PaymentCurrency
@@ -86,7 +91,7 @@ final class RESTAPIRepository: RESTAPIRepositable {
             paymentCurrency: paymentCurrency
         ))
     }
-    
+
     func requestAllOrderBook(
         paymentCurrency: PaymentCurrency
     ) -> Single<OrderBookAll> {
@@ -95,14 +100,14 @@ final class RESTAPIRepository: RESTAPIRepositable {
             paymentCurrency: paymentCurrency
         ))
     }
-    
+
     func requestAllTicker(paymentCurrency: PaymentCurrency) -> Single<TickerAll> {
         return request(BithumbEndpointCases.ticker(
             orderCurrency: "ALL",
             paymentCurrency: paymentCurrency
         ))
     }
-        
+
     func requestTicker(
         orderCurrency: String,
         paymentCurrency: PaymentCurrency
@@ -110,6 +115,18 @@ final class RESTAPIRepository: RESTAPIRepositable {
         return request(BithumbEndpointCases.ticker(
             orderCurrency: orderCurrency,
             paymentCurrency: paymentCurrency
+        ))
+    }
+
+    func requestCandlestick(
+        orderCurrency: String,
+        paymentCurrency: PaymentCurrency,
+        chartIntervals: ChartIntervals
+    ) -> Single<Candlestick> {
+        return request(BithumbEndpointCases.candlestick(
+            orderCurrency: orderCurrency,
+            paymentCurrency: paymentCurrency,
+            chartIntervals: chartIntervals
         ))
     }
 }
