@@ -18,8 +18,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         let navigationController = UINavigationController()
         window?.rootViewController = navigationController
-        coordinator = CoinCoordinator(navigationController: navigationController)
+        
+        let restAPIRepository = RESTAPIRepository()
+        let webSocketService = WebSocketService(repository: WebSocketRepository())
+        
+        coordinator = CoinCoordinator(
+            navigationController: navigationController,
+            restAPIRepository: restAPIRepository,
+            webSocketService: webSocketService
+        )
         coordinator?.start()
+        
         window?.makeKeyAndVisible()
     }
 
