@@ -9,9 +9,9 @@ import Foundation
 
 struct TickerViewData: Hashable {
     let coinName: String
-    let currentPrice: String
-    let fluctateRate: String
-    let unitTraded: String
+    var currentPrice: String
+    var fluctateRate: String
+    var unitsTraded: String
     var isLiked: Bool
     
     func hash(into hasher: inout Hasher) {
@@ -43,6 +43,6 @@ extension TickerViewData {
     }
     
     var tradedCount: Double {
-        Double(unitTraded) ?? 0
+        Double(unitsTraded) ?? 0
     }
 }
