@@ -22,9 +22,14 @@ protocol WebSocketRepositable {
 final class WebSocketRepository: WebSocketRepositable {
     private let socket: WebSocket
     private let responseSubject: BehaviorSubject<String> = .init(value: "")
+    private var isConnected = false
+    private var request: WebSocketDataRequest?
     
-    init() {
-        var request = URLRequest(url: URL(string: "wss://pubwss.bithumb.com/pub/ws")!)
+    init() throws {
+        guard let url = URL(string: "wss://pubwss.bithumb.com/pub/ws")
+        else { throw WebSocketError.invalidURL }
+        
+        var request = URLRequest(url: url)
         request.timeoutInterval = 5
         
         socket = WebSocket(request: request)
@@ -39,7 +44,12 @@ final class WebSocketRepository: WebSocketRepositable {
     ) -> Observable<String> {
         
         let symbols = makeSymbols(coinNames: coinNames, paymentCurrency: paymentCurrency)
-        requestSubcription(type: type, symbols: symbols)
+        
+        if isConnected {
+            requestSubcription(type: type, symbols: symbols)
+        } else {
+            request = WebSocketDataRequest(type: type, symbols: symbols)
+        }
         
         return responseSubject
     }
@@ -93,6 +103,16 @@ final class WebSocketRepository: WebSocketRepositable {
     }
 }
 
+// MARK: - WebSocketDataRequest
+
+extension WebSocketRepository {
+    
+    struct WebSocketDataRequest {
+        let type: SubscriptionType
+        let symbols: String
+    }
+}
+
 // MARK: - WebSocketDelegate
 
 extension WebSocketRepository: WebSocketDelegate {
@@ -100,6 +120,11 @@ extension WebSocketRepository: WebSocketDelegate {
     func didReceive(event: WebSocketEvent, client: WebSocket) {
         switch event {
         case .connected:
+            isConnected = true
+            
+            if let request = request {
+                requestSubcription(type: request.type, symbols: request.symbols)
+            }
             break
         case .disconnected:
             connect()

@@ -20,16 +20,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = navigationController
         
         let restAPIRepository = RESTAPIRepository()
-        let webSocketService = WebSocketService(repository: WebSocketRepository())
         
-        coordinator = CoinCoordinator(
-            navigationController: navigationController,
-            restAPIRepository: restAPIRepository,
-            webSocketService: webSocketService
-        )
-        coordinator?.start()
-        
-        window?.makeKeyAndVisible()
+        do {
+            let webSocketService = try WebSocketService(repository: WebSocketRepository())
+            
+            coordinator = CoinCoordinator(
+                navigationController: navigationController,
+                restAPIRepository: restAPIRepository,
+                webSocketService: webSocketService
+            )
+            coordinator?.start()
+            
+            window?.makeKeyAndVisible()
+        } catch {
+            print(error)
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
