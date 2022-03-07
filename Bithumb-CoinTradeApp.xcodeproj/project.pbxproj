@@ -12,6 +12,7 @@
 		0026D86027D4A01200B40A6F /* WebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0026D85F27D4A01200B40A6F /* WebSocketService.swift */; };
 		0026D86227D4A36A00B40A6F /* WebSocketInitResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0026D86127D4A36A00B40A6F /* WebSocketInitResponse.swift */; };
 		0026D86427D4B46F00B40A6F /* WebSocketError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0026D86327D4B46F00B40A6F /* WebSocketError.swift */; };
+		0026D86727D636BF00B40A6F /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0026D86627D636BF00B40A6F /* Double+.swift */; };
 		003F5E5727D10C4A001D76C2 /* WebSocketRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003F5E5627D10C4A001D76C2 /* WebSocketRepository.swift */; };
 		0082D8E127C7CE8D00E65E72 /* RESTAPIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082D8E027C7CE8D00E65E72 /* RESTAPIRepository.swift */; };
 		0082D8E427C9153B00E65E72 /* AssetStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082D8E327C9153B00E65E72 /* AssetStatus.swift */; };
@@ -82,6 +83,7 @@
 		0026D85F27D4A01200B40A6F /* WebSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketService.swift; sourceTree = "<group>"; };
 		0026D86127D4A36A00B40A6F /* WebSocketInitResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketInitResponse.swift; sourceTree = "<group>"; };
 		0026D86327D4B46F00B40A6F /* WebSocketError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketError.swift; sourceTree = "<group>"; };
+		0026D86627D636BF00B40A6F /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
 		003F5E5627D10C4A001D76C2 /* WebSocketRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketRepository.swift; sourceTree = "<group>"; };
 		0082D8E027C7CE8D00E65E72 /* RESTAPIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTAPIRepository.swift; sourceTree = "<group>"; };
 		0082D8E327C9153B00E65E72 /* AssetStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetStatus.swift; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 			isa = PBXGroup;
 			children = (
 				87CCA58727CDCC6F00C5E022 /* UIView+.swift */,
+				0026D86627D636BF00B40A6F /* Double+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -676,6 +679,7 @@
 				878D0F0127C4F3B40006D255 /* ViewController.swift in Sources */,
 				0082D8ED27C9164500E65E72 /* TransactionHistory.swift in Sources */,
 				0082D8E427C9153B00E65E72 /* AssetStatus.swift in Sources */,
+				0026D86727D636BF00B40A6F /* Double+.swift in Sources */,
 				0082D8EB27C9163C00E65E72 /* OrderBook.swift in Sources */,
 				E598E56827CF4C89006D7659 /* TransactionHistoryViewController.swift in Sources */,
 				87C6B43F27C65EED00F880DE /* CoinListViewController.swift in Sources */,

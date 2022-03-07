@@ -111,7 +111,7 @@ class CoinCell: UITableViewCell {
         
         coinNameLabel.text = viewData.coinName
         
-        let priceAttributedString = NSMutableAttributedString(string: viewData.currentPrice + "원  ")
+        let priceAttributedString = NSMutableAttributedString(string: viewData.price.toCurrencyFormat + "원  ")
         let fluctateRateAttributedString = NSMutableAttributedString(
             string: "\(viewData.fluctateRate)%",
             attributes: [
