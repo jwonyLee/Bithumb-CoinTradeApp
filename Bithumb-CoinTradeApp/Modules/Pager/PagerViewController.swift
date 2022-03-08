@@ -14,10 +14,12 @@ import Then
 protocol PagerCoodinatable {
     func showChart()
     func showOrderbook()
-    func showTransactionHistory()
+    func showTransactionHistory(coinName: String)
 }
 
 final class PagerViewController: BaseViewController {
+    private var coinName: String
+    
     private let transactionHistoryButton = UIButton().then {
         $0.setTitle("채결 내역", for: .normal)
         $0.setTitleColor(.systemBlue, for: .normal)
@@ -25,7 +27,11 @@ final class PagerViewController: BaseViewController {
     
     private var coordinator: PagerCoodinatable
 
-    init(coordinator: PagerCoodinatable) {
+    init(
+        coinName: String,
+        coordinator: PagerCoodinatable
+    ) {
+        self.coinName = coinName
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
@@ -59,7 +65,7 @@ final class PagerViewController: BaseViewController {
     override func subscribeUI() {
         transactionHistoryButton.rx.tap
             .subscribe(with: self, onNext: { owner, _ in
-                owner.coordinator.showTransactionHistory()
+                owner.coordinator.showTransactionHistory(coinName: owner.coinName)
             })
             .disposed(by: disposeBag)
     }

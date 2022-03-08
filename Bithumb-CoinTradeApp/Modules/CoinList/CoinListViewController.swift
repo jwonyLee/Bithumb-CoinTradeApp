@@ -12,7 +12,7 @@ import SnapKit
 import Then
 
 protocol CoinListCoordinatable {
-    func showPager()
+    func showPager(coinName: String)
 }
 
 enum CoinListType {
@@ -237,6 +237,6 @@ final class CoinListViewController: BaseViewController {
 
 extension CoinListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        coordinator.showPager()
+        coordinator.showPager(coinName: dataSource?.itemIdentifier(for: indexPath)?.coinName ?? "")
     }
 }

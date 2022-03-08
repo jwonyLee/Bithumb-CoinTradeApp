@@ -48,8 +48,8 @@ final class CoinCoordinator: Coordinator {
 
 // MARK: - CoinListCoordinatable
 extension CoinCoordinator: CoinListCoordinatable {
-    func showPager() {
-        let pagerViewController = PagerViewController(coordinator: self)
+    func showPager(coinName: String) {
+        let pagerViewController = PagerViewController(coinName: coinName, coordinator: self)
         navigationController.pushViewController(pagerViewController, animated: true)
     }
 }
@@ -69,8 +69,8 @@ extension CoinCoordinator: PagerCoodinatable {
         //
     }
 
-    func showTransactionHistory() {
-        let viewModel = TransactionHistoryViewModel()
+    func showTransactionHistory(coinName: String) {
+        let viewModel = TransactionHistoryViewModel(coinName: coinName, webSocketService: webSocketService)
         
         let transactionHistoryViewController = TransactionHistoryViewController(coordinator: self, viewModel: viewModel)
         navigationController.pushViewController(transactionHistoryViewController, animated: true)

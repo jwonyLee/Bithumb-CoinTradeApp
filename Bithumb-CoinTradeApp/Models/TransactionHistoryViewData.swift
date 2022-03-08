@@ -8,6 +8,7 @@
 import Foundation
 
 struct TransactionHistoryViewData: Hashable {
+    let receivedDate: Date
     let transactionDate: String
     let price: Double
     let quantity: Double

@@ -14,51 +14,54 @@ protocol TransactionHistoryViewModelType {
 }
 
 class TransactionHistoryViewModel: TransactionHistoryViewModelType {
+    var coinName: String
+    
     private let disposeBag = DisposeBag()
     
-    private var transactionList = [TransactionHistoryData]()
+    private let webSocketService: WebSocketServiceType
+//    private let restAPIRepository: RESTAPIRepositable
+    
     private var transactionViewDataList = [TransactionHistoryViewData]()
     private let transactionListViewDataSubject = BehaviorSubject<[TransactionHistoryViewData]>(value: [])
     
     var transactionListObservable: Observable<[TransactionHistoryViewData]> { transactionListViewDataSubject }
     
-    init() {
-        transactionList = loadData()
-        transactionViewDataList = makeViewData(transactionList)
-        transactionListViewDataSubject.onNext(transactionViewDataList)
+    init(
+        coinName: String,
+        webSocketService: WebSocketServiceType
+    ) {
+        self.coinName = coinName
+        self.webSocketService = webSocketService
+        
+        self.loadData()
     }
     
-    private func loadData() -> [TransactionHistoryData] {
-        return sampleData
+    private func loadData() {
+        subscribeData()
     }
     
     private func makeViewData(_ transactionList: [TransactionHistoryData]) -> [TransactionHistoryViewData] {
         var result = [TransactionHistoryViewData]()
         transactionList.forEach { transaction in
-            result.append(TransactionHistoryViewData(transactionDate: transaction.transactionDate, price: Double(transaction.price) ?? 0, quantity: Double(transaction.unitsTraded) ?? 0, type: transaction.type))
+            result.append(TransactionHistoryViewData(receivedDate: Date(), transactionDate: transaction.transactionDate, price: Double(transaction.price) ?? 0, quantity: Double(transaction.unitsTraded) ?? 0, type: transaction.type))
         }
         
         return result
     }
-}
-
-extension TransactionHistoryViewModel {
-    var sampleData: [TransactionHistoryData] {
-        return [
-            TransactionHistoryData(transactionDate: "2018-04-10 17:47:46", type: .ask, unitsTraded: "0.0001", price: "7575000", total: "758"),
-            TransactionHistoryData(transactionDate: "2018-04-10 17:47:47", type: .bid, unitsTraded: "0.0021", price: "7575000", total: "758"),
-            TransactionHistoryData(transactionDate: "2018-04-10 17:47:48", type: .bid, unitsTraded: "0.0011", price: "7575000", total: "758"),
-            TransactionHistoryData(transactionDate: "2018-04-10 17:47:49", type: .ask, unitsTraded: "0.0051", price: "7575000", total: "758"),
-            TransactionHistoryData(transactionDate: "2018-04-10 17:47:50", type: .ask, unitsTraded: "0.0091", price: "7575000", total: "758"),
-            TransactionHistoryData(transactionDate: "2018-04-10 17:47:50", type: .bid, unitsTraded: "0.0001", price: "7575000", total: "758"),
-            TransactionHistoryData(transactionDate: "2018-04-10 17:47:50", type: .ask, unitsTraded: "0.0061", price: "7575000", total: "758"),
-            TransactionHistoryData(transactionDate: "2018-04-10 17:47:50", type: .ask, unitsTraded: "0.0051", price: "7575000", total: "758"),
-            TransactionHistoryData(transactionDate: "2018-04-10 17:47:50", type: .bid, unitsTraded: "0.0041", price: "7575000", total: "758"),
-            TransactionHistoryData(transactionDate: "2018-04-10 17:47:55", type: .bid, unitsTraded: "0.0031", price: "7575000", total: "758"),
-            TransactionHistoryData(transactionDate: "2018-04-10 17:47:56", type: .ask, unitsTraded: "0.021", price: "7575000", total: "758"),
-            TransactionHistoryData(transactionDate: "2018-04-10 17:47:57", type: .bid, unitsTraded: "0.0501", price: "7575000", total: "758"),
-            TransactionHistoryData(transactionDate: "2018-04-10 17:47:58", type: .ask, unitsTraded: "0.0061", price: "7575000", total: "758"),
-            TransactionHistoryData(transactionDate: "2018-04-10 17:47:59", type: .bid, unitsTraded: "0.0701", price: "7575000", total: "758"),
-        ]
+    
+    private func subscribeData() {
+        webSocketService.fetchData(
+            type: .transaction,
+            coinNames: [coinName],
+            paymentCurrency: .krw
+        )
+            .subscribe(with: self, onNext: { (owner, response: TransactionHistoryWebSocketResponse) in
+                response.content.list.forEach { element in
+                    let viewData = TransactionHistoryViewData(receivedDate: Date() ,transactionDate: element.contDtm, price: Double(element.contPrice) ?? 0, quantity: Double(element.contQty) ?? 0, type: TransactionType(rawValue: ((element.updn == "up") ? "bid" : "ask")) ?? .ask)
+                    owner.transactionViewDataList.append(viewData)
+                }
+                owner.transactionListViewDataSubject.onNext(owner.transactionViewDataList.reversed())
+            })
+            .disposed(by: disposeBag)
     }
 }
