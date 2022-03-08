@@ -45,4 +45,8 @@ extension TickerViewData {
     var tradedCount: Double {
         Double(unitsTraded) ?? 0
     }
+    
+    var price: Double {
+        Double(currentPrice) ?? 0
+    }
 }

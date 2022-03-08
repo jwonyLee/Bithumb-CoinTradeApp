@@ -41,12 +41,12 @@ final class CoinListViewModel: CoinListViewModelType {
         restAPIRepository.requestAllTicker(paymentCurrency: .krw)
             .map { self.makeTickerViewData($0.data) }
             .subscribe(with: self, onSuccess: { owner, tickerViewData in
-                owner.tickerViewDataList = tickerViewData
-                owner.tickerViewDataSubject.onNext(tickerViewData)
-                
-                DispatchQueue.global().asyncAfter(deadline: .now() + 2) {
-                    owner.subscribeData()
+                owner.tickerViewDataList = tickerViewData.sorted {
+                    $0.price > $1.price
                 }
+                owner.tickerViewDataSubject.onNext(owner.tickerViewDataList)
+                
+                owner.subscribeData()
             })
             .disposed(by: disposeBag)
     }
@@ -77,7 +77,7 @@ final class CoinListViewModel: CoinListViewModelType {
                     owner.tickerViewDataList[index].fluctateRate = responseData.chgRate
                     owner.tickerViewDataList[index].unitsTraded = responseData.volume
                     
-                    owner.tickerViewDataSubject.onNext(owner.tickerViewDataList)
+                    owner.changeList(to: owner.listType)
                 }
             })
             .disposed(by: disposeBag)
@@ -87,12 +87,10 @@ final class CoinListViewModel: CoinListViewModelType {
         guard let tickerIndex = (tickerViewDataList.firstIndex { $0.coinName == coin }) else { return }
         
         tickerViewDataList[tickerIndex].isLiked.toggle()
-        tickerViewDataSubject.onNext(tickerViewDataList)
+        changeList(to: listType)
     }
     
     func changeList(to type: CoinListType) {
-        guard listType != type else { return }
-        
         listType = type
         
         switch type {

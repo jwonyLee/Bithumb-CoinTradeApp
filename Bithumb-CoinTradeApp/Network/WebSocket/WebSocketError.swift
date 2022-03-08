@@ -8,6 +8,7 @@
 import Foundation
 
 enum WebSocketError: Error {
+    case invalidURL
     case decodingError
     case invalidFilter
 }

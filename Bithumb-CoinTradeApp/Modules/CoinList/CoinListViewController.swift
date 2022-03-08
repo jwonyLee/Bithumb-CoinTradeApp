@@ -227,7 +227,7 @@ final class CoinListViewController: BaseViewController {
         snapShot.appendSections([0])
         snapShot.appendItems(coins)
         
-        dataSource?.apply(snapShot)
+        dataSource?.apply(snapShot, animatingDifferences: false)
     }
     
     private func didTapLikeButton(_ coinName: String) {

@@ -26,7 +26,6 @@ protocol WebSocketServiceType {
 class WebSocketService: WebSocketServiceType {
     let repository: WebSocketRepositable
     let disposeBag = DisposeBag()
-    private var currentSubscriptionType: SubscriptionType?
     
     init(repository: WebSocketRepositable) {
         self.repository = repository
@@ -37,8 +36,6 @@ class WebSocketService: WebSocketServiceType {
         coinNames: [String],
         paymentCurrency: PaymentCurrency
     ) -> Observable<T> {
-        currentSubscriptionType = .ticker
-
         return repository.requestData(
             type: type,
             coinNames: coinNames,
