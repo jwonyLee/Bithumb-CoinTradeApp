@@ -11,6 +11,11 @@ struct OrderBookViewData: Hashable {
     let price: String
     let quantity: String
     let orderType: TransactionType
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(price)
+        hasher.combine(orderType)
+    }
 }
 
 extension OrderBookViewData {

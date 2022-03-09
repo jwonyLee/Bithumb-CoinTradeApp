@@ -72,10 +72,10 @@ class OrderBookCell: UITableViewCell {
         
         switch viewData.orderType {
         case .ask:
-            askQuantityLabel.text = viewData.quantity
+            askQuantityLabel.text = String(format: "%.4f", viewData.quantityToDouble)
             askQuantityLabel.isHidden = false
         case .bid:
-            bidQuantityLabel.text = viewData.quantity
+            bidQuantityLabel.text = String(format: "%.4f", viewData.quantityToDouble)
             bidQuantityLabel.isHidden = false
         }
     }
