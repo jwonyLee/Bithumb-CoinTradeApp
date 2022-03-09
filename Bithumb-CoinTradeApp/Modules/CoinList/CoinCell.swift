@@ -32,7 +32,7 @@ class CoinCell: UITableViewCell {
     }
     
     private let likeButton = UIButton().then {
-        $0.tintColor = .red
+        $0.tintColor = .systemRed
     }
     
     private lazy var dislikedImage = UIImage(systemName: "heart")
@@ -115,7 +115,7 @@ class CoinCell: UITableViewCell {
         let fluctateRateAttributedString = NSMutableAttributedString(
             string: "\(viewData.fluctateRate)%",
             attributes: [
-                .foregroundColor: viewData.fluctateRate.first == "-" ? UIColor.blue : UIColor.red
+                .foregroundColor: viewData.fluctateRate.first == "-" ? UIColor.systemBlue : UIColor.systemRed
             ]
         )
         
