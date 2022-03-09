@@ -17,6 +17,7 @@ class OrderBookViewModel: OrderBookViewModelType {
     private let disposBag = DisposeBag()
     
     private let webSockeService: WebSocketServiceType
+    private let coinName: String
     
     private let orderBookDataSubject = BehaviorSubject<[OrderBookViewData]>(value: [])
     private var orderBookDataList = [OrderBookViewData]()
@@ -24,9 +25,11 @@ class OrderBookViewModel: OrderBookViewModelType {
     var orderBookObservable: Observable<[OrderBookViewData]> { orderBookDataSubject }
     
     init(
-        websocketService: WebSocketServiceType
+        websocketService: WebSocketServiceType,
+        coinName: String
     ) {
         self.webSockeService = websocketService
+        self.coinName = coinName
         
         loadData()
     }
@@ -34,7 +37,7 @@ class OrderBookViewModel: OrderBookViewModelType {
     private func loadData() {
         webSockeService.fetchData(
             type: .orderbookDepth,
-            coinNames: ["BTC"],
+            coinNames: [coinName],
             paymentCurrency: .krw
         )
             .subscribe(with: self, onNext: { (owner, response: OrderBookWebSocketResponse) in

@@ -18,13 +18,18 @@ class OrderBookViewController: BaseViewController {
     }
     
     private var dataSource: UITableViewDiffableDataSource<Int, OrderBookViewData>?
+    private let coinName: String
     
     init(
-        viewModel: OrderBookViewModelType
+        viewModel: OrderBookViewModelType,
+        coinName: String
     ) {
         self.viewModel = viewModel
+        self.coinName = coinName
         
         super.init(nibName: nil, bundle: nil)
+        
+        title = coinName
     }
     
     required init?(coder: NSCoder) {
@@ -43,7 +48,8 @@ class OrderBookViewController: BaseViewController {
     
     override func setConstraint() {
         tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.leading.trailing.bottom.equalToSuperview()
         }
     }
     
