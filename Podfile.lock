@@ -21,7 +21,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5.5)
-  - Charts
+  - Charts (~> 3.6.0)
   - RealmSwift (~> 10)
   - RxCocoa (= 6.5.0)
   - RxSwift (= 6.5.0)
@@ -57,6 +57,6 @@ SPEC CHECKSUMS:
   SwiftLint: ae76d82f056734f853c8cd0371503252c606c482
   Then: acfe0be7e98221c6204e12f8161459606d5d822d
 
-PODFILE CHECKSUM: ceb977a3b2f16b6b903495aae1e14f0ef2444037
+PODFILE CHECKSUM: 3db5cc06b72c348f4cf2698f1d65267307245f78
 
 COCOAPODS: 1.11.2

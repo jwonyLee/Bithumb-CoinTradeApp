@@ -48,7 +48,13 @@ class CoinChartViewModel: CoinChartViewModelType {
     private func makeViewData(_ transactionList: [TransactionHistoryData]) -> [TransactionHistoryViewData] {
         var result = [TransactionHistoryViewData]()
         transactionList.forEach { transaction in
-            result.append(TransactionHistoryViewData(receivedDate: Date(), transactionDate: transaction.transactionDate, price: Double(transaction.price) ?? 0, quantity: Double(transaction.unitsTraded) ?? 0, type: transaction.type))
+            result.append(TransactionHistoryViewData(
+                receivedDate: Date(),
+                transactionDate: transaction.transactionDate,
+                price: Double(transaction.price) ?? 0,
+                quantity: Double(transaction.unitsTraded) ?? 0,
+                type: transaction.type
+            ))
         }
         
         return result

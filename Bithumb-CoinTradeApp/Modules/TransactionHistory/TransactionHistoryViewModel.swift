@@ -43,7 +43,13 @@ class TransactionHistoryViewModel: TransactionHistoryViewModelType {
     private func makeViewData(_ transactionList: [TransactionHistoryData]) -> [TransactionHistoryViewData] {
         var result = [TransactionHistoryViewData]()
         transactionList.forEach { transaction in
-            result.append(TransactionHistoryViewData(receivedDate: Date(), transactionDate: transaction.transactionDate, price: Double(transaction.price) ?? 0, quantity: Double(transaction.unitsTraded) ?? 0, type: transaction.type))
+            result.append(TransactionHistoryViewData(
+                receivedDate: Date(),
+                transactionDate: transaction.transactionDate,
+                price: Double(transaction.price) ?? 0,
+                quantity: Double(transaction.unitsTraded) ?? 0,
+                type: transaction.type
+            ))
         }
         
         return result
@@ -57,7 +63,13 @@ class TransactionHistoryViewModel: TransactionHistoryViewModelType {
         )
             .subscribe(with: self, onNext: { (owner, response: TransactionHistoryWebSocketResponse) in
                 response.content.list.forEach { element in
-                    let viewData = TransactionHistoryViewData(receivedDate: Date() ,transactionDate: element.contDtm, price: Double(element.contPrice) ?? 0, quantity: Double(element.contQty) ?? 0, type: TransactionType(rawValue: ((element.updn == "up") ? "bid" : "ask")) ?? .ask)
+                    let viewData = TransactionHistoryViewData(
+                        receivedDate: Date(),
+                        transactionDate: element.contDtm,
+                        price: Double(element.contPrice) ?? 0,
+                        quantity: Double(element.contQty) ?? 0,
+                        type: TransactionType(rawValue: ((element.updn == "up") ? "bid" : "ask")) ?? .ask
+                    )
                     owner.transactionViewDataList.append(viewData)
                 }
                 owner.transactionListViewDataSubject.onNext(owner.transactionViewDataList.reversed())

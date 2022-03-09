@@ -101,7 +101,7 @@ final class CoinChartViewController: BaseViewController {
         chartDataSet.decreasingFilled = true
         chartDataSet.shadowColor = .black
         chartDataSet.shadowWidth = 0.7
-        if data.count > 0 {
+        if !data.isEmpty {
             DispatchQueue.main.async {
                 self.chart.setVisibleYRange(minYRange: data[data.count-1][4].rawValue/10, maxYRange: data[data.count-1][3].rawValue / 10, axis: .right)
 
