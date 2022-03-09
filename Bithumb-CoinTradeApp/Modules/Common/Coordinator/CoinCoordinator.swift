@@ -49,30 +49,12 @@ final class CoinCoordinator: Coordinator {
 // MARK: - CoinListCoordinatable
 extension CoinCoordinator: CoinListCoordinatable {
     func showPager(coinName: String) {
-        let pagerViewController = PagerViewController(coinName: coinName, coordinator: self)
-        navigationController.pushViewController(pagerViewController, animated: true)
-    }
-}
-
-// MARK: - TransactionHistoryCoodinatable
-extension CoinCoordinator: TransactionHistoryCoodinatable {
-    
-}
-
-// MARK: - PagerCoordinatable
-extension CoinCoordinator: PagerCoodinatable {
-    func showChart() {
-        //
-    }
-
-    func showOrderbook() {
-        //
-    }
-
-    func showTransactionHistory(coinName: String) {
+        let pagerViewController = PagerViewController(coordinator: self)
         let viewModel = TransactionHistoryViewModel(coinName: coinName, webSocketService: webSocketService)
-        
         let transactionHistoryViewController = TransactionHistoryViewController(coordinator: self, viewModel: viewModel)
-        navigationController.pushViewController(transactionHistoryViewController, animated: true)
+
+        pagerViewController.transactionHistoryViewController = transactionHistoryViewController
+
+        navigationController.pushViewController(pagerViewController, animated: true)
     }
 }
