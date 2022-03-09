@@ -10,7 +10,7 @@ target 'Bithumb-CoinTradeApp' do
   pod 'RxCocoa', '6.5.0'
   pod 'SnapKit', '~> 5.0.0'
   pod 'Then'
-  pod 'Charts'
+  pod 'Charts', '~> 3.6.0'
   pod 'Alamofire', '~> 5.5'
   pod 'SwiftLint'
   pod 'Starscream', '~> 4.0.0'
