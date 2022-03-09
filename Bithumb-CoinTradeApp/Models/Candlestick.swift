@@ -43,4 +43,13 @@ enum CandlestickData: Codable {
             try container.encode(x)
         }
     }
+
+    var value: String {
+        switch self {
+        case .integer(let int):
+            return "\(int)"
+        case .string(let string):
+            return string
+        }
+    }
 }

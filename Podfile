@@ -14,6 +14,7 @@ target 'Bithumb-CoinTradeApp' do
   pod 'Alamofire', '~> 5.5'
   pod 'SwiftLint'
   pod 'Starscream', '~> 4.0.0'
+  pod 'RealmSwift', '~>10'
 
   target 'Bithumb-CoinTradeAppTests' do
     inherit! :search_paths
