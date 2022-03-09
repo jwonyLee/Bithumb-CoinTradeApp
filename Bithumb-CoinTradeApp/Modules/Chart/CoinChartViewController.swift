@@ -22,6 +22,9 @@ final class CoinChartViewController: BaseViewController {
     let chart = CandleStickChartView().then {
         $0.backgroundColor = .white
         $0.noDataText = "no data"
+        $0.drawGridBackgroundEnabled = false
+        $0.maxVisibleCount = 10
+        $0.scaleYEnabled = false
     }
     
     init(
@@ -31,6 +34,8 @@ final class CoinChartViewController: BaseViewController {
         self.coordinator = coordinator
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        
+        chart.delegate = self
     }
 
     required init?(coder: NSCoder) {
@@ -90,16 +95,39 @@ final class CoinChartViewController: BaseViewController {
         
         let chartDataSet = CandleChartDataSet(entries: myEntries, label: "데이터셋1")
         //색상 세팅
-        chartDataSet.increasingColor = .red
+        chartDataSet.increasingColor = .systemRed
         chartDataSet.increasingFilled = true
-        chartDataSet.decreasingColor = .blue
+        chartDataSet.decreasingColor = .systemBlue
         chartDataSet.decreasingFilled = true
         chartDataSet.shadowColor = .black
         chartDataSet.shadowWidth = 0.7
+        if data.count > 0 {
+            DispatchQueue.main.async {
+                self.chart.setVisibleYRange(minYRange: data[data.count-1][4].rawValue/10, maxYRange: data[data.count-1][3].rawValue / 10, axis: .right)
+
+                self.chart.sizeThatFits(CGSize(width: ((Double(data.count))/30.0), height: ((data[data.count-1][3].rawValue) - data[data.count-1][4].rawValue/10) * 3))
+
+                self.chart.zoom(scaleX: ((Double(data.count))/30.0), scaleY: 1, x: CGFloat(Int.max), y: 1)
+                self.chart.moveViewTo(xValue: Double(Int.max), yValue: (data[data.count-1][3].rawValue + data[data.count-1][4].rawValue) / 2.0, axis: .right)
+            }
+
+        }
+//        chart.setScaleMinima(0.99, scaleY: 0.99)
+        
+        
+//        if data.count != 0 {
+//            chart.setVisibleXRangeMaximum(1000)
+//        }
         
         //radius 조절 : https://github.com/danielgindi/Charts/pull/4625 PR중
 //        chartDataSet.barCornerRadius = 3
         let chartData = CandleChartData(dataSet: chartDataSet)
         chart.data = chartData
+    }
+}
+
+extension CoinChartViewController: ChartViewDelegate {
+    func chartScaled(_ chartView: ChartViewBase, scaleX: CGFloat, scaleY: CGFloat) {
+        print("\(scaleX) - \(scaleY)")
     }
 }
