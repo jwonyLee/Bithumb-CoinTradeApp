@@ -43,4 +43,13 @@ enum CandlestickData: Codable {
             try container.encode(x)
         }
     }
+    
+    var rawValue: Double {
+        switch self {
+        case let .integer(x):
+            return Double(x)
+        case let .string(x):
+            return Double(x) ?? -1
+        }
+    }
 }

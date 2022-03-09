@@ -15,6 +15,7 @@ protocol PagerCoodinatable {
     func showChart()
     func showOrderbook()
     func showTransactionHistory(coinName: String)
+    func showChart(coinName: String)
 }
 
 final class PagerViewController: BaseViewController {
@@ -22,6 +23,11 @@ final class PagerViewController: BaseViewController {
     
     private let transactionHistoryButton = UIButton().then {
         $0.setTitle("채결 내역", for: .normal)
+        $0.setTitleColor(.systemBlue, for: .normal)
+    }
+    
+    private let chartButton = UIButton().then {
+        $0.setTitle("차트", for: .normal)
         $0.setTitleColor(.systemBlue, for: .normal)
     }
     
@@ -48,6 +54,7 @@ final class PagerViewController: BaseViewController {
     
     override func setUI() {
         view.addSubview(transactionHistoryButton)
+        view.addSubview(chartButton)
     }
     
     // MARK: - setConstraint
@@ -55,6 +62,12 @@ final class PagerViewController: BaseViewController {
     override func setConstraint() {
         transactionHistoryButton.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(200)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(30)
+        }
+        
+        chartButton.snp.makeConstraints { make in
+            make.top.equalTo(transactionHistoryButton.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(30)
         }
@@ -66,6 +79,12 @@ final class PagerViewController: BaseViewController {
         transactionHistoryButton.rx.tap
             .subscribe(with: self, onNext: { owner, _ in
                 owner.coordinator.showTransactionHistory(coinName: owner.coinName)
+            })
+            .disposed(by: disposeBag)
+        
+        chartButton.rx.tap
+            .subscribe(with: self, onNext: { owner, _ in
+                owner.coordinator.showChart(coinName: owner.coinName)
             })
             .disposed(by: disposeBag)
     }

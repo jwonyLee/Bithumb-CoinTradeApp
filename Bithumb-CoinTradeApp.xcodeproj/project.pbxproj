@@ -50,6 +50,8 @@
 		C7F0EEBBA715110E651FBB1E /* Pods_Bithumb_CoinTradeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F53B154EA529A538A2F21413 /* Pods_Bithumb_CoinTradeAppTests.framework */; };
 		E552800527D7479100F1F3A1 /* TransactionHistoryWebSocketResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E552800427D7479100F1F3A1 /* TransactionHistoryWebSocketResponse.swift */; };
 		E552800727D74B5B00F1F3A1 /* TransactionHistoryWebSocketData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E552800627D74B5B00F1F3A1 /* TransactionHistoryWebSocketData.swift */; };
+		E552800C27D76BFC00F1F3A1 /* CoinChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E552800B27D76BFC00F1F3A1 /* CoinChartViewController.swift */; };
+		E552800E27D76F9A00F1F3A1 /* CoinChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E552800D27D76F9A00F1F3A1 /* CoinChartViewModel.swift */; };
 		E598E56827CF4C89006D7659 /* TransactionHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598E56727CF4C89006D7659 /* TransactionHistoryViewController.swift */; };
 		E598E56A27CF5272006D7659 /* TransactionHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598E56927CF5272006D7659 /* TransactionHistoryViewModel.swift */; };
 		E598E56C27CF55BC006D7659 /* TransactionHistoryViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598E56B27CF55BC006D7659 /* TransactionHistoryViewData.swift */; };
@@ -131,6 +133,8 @@
 		D890884C2A7465502B65CF36 /* Pods_Bithumb_CoinTradeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bithumb_CoinTradeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E552800427D7479100F1F3A1 /* TransactionHistoryWebSocketResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHistoryWebSocketResponse.swift; sourceTree = "<group>"; };
 		E552800627D74B5B00F1F3A1 /* TransactionHistoryWebSocketData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHistoryWebSocketData.swift; sourceTree = "<group>"; };
+		E552800B27D76BFC00F1F3A1 /* CoinChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinChartViewController.swift; sourceTree = "<group>"; };
+		E552800D27D76F9A00F1F3A1 /* CoinChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinChartViewModel.swift; sourceTree = "<group>"; };
 		E598E56727CF4C89006D7659 /* TransactionHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHistoryViewController.swift; sourceTree = "<group>"; };
 		E598E56927CF5272006D7659 /* TransactionHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHistoryViewModel.swift; sourceTree = "<group>"; };
 		E598E56B27CF55BC006D7659 /* TransactionHistoryViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHistoryViewData.swift; sourceTree = "<group>"; };
@@ -309,6 +313,7 @@
 				87C6B43D27C65EC000F880DE /* LeaderBoard */,
 				87C6B44427C663B400F880DE /* Pager */,
 				E598E56627CF4C6E006D7659 /* TransactionHistory */,
+				E552800A27D76BDB00F1F3A1 /* Chart */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -384,6 +389,15 @@
 				F53B154EA529A538A2F21413 /* Pods_Bithumb_CoinTradeAppTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E552800A27D76BDB00F1F3A1 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				E552800B27D76BFC00F1F3A1 /* CoinChartViewController.swift */,
+				E552800D27D76F9A00F1F3A1 /* CoinChartViewModel.swift */,
+			);
+			path = Chart;
 			sourceTree = "<group>";
 		};
 		E598E56627CF4C6E006D7659 /* TransactionHistory */ = {
@@ -707,6 +721,8 @@
 				0082D8EF27CB2C5E00E65E72 /* CoinCell.swift in Sources */,
 				0026D85B27D4995B00B40A6F /* TickerWebSocketResponse.swift.swift in Sources */,
 				87C6B44127C65EF700F880DE /* LeaderBoardViewController.swift in Sources */,
+				E552800E27D76F9A00F1F3A1 /* CoinChartViewModel.swift in Sources */,
+				E552800C27D76BFC00F1F3A1 /* CoinChartViewController.swift in Sources */,
 				E5F565A527C924180002599F /* OrderBookAll.swift in Sources */,
 				E5F5659E27C7C8CA0002599F /* Endpoint.swift in Sources */,
 				0026D85D27D4997000B40A6F /* TickerWebSocketData.swift in Sources */,
