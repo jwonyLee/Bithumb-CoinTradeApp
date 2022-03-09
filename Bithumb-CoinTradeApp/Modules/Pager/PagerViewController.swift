@@ -13,7 +13,7 @@ import Then
 
 protocol PagerCoodinatable {
     func showChart()
-    func showOrderbook()
+    func showOrderbook(coinName: String)
     func showTransactionHistory(coinName: String)
     func showChart(coinName: String)
 }

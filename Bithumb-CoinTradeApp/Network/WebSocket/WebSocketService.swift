@@ -42,7 +42,7 @@ class WebSocketService: WebSocketServiceType {
             paymentCurrency: paymentCurrency
         )
             .filter { !$0.isEmpty }
-            .map { try self.decode(from: $0) }
+            .compactMap { try? self.decode(from: $0) }
     }
     
     // TODO: - Generic 적용

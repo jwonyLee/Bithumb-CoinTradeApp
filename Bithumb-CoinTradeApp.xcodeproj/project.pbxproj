@@ -13,6 +13,13 @@
 		0026D86227D4A36A00B40A6F /* WebSocketInitResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0026D86127D4A36A00B40A6F /* WebSocketInitResponse.swift */; };
 		0026D86427D4B46F00B40A6F /* WebSocketError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0026D86327D4B46F00B40A6F /* WebSocketError.swift */; };
 		0026D86727D636BF00B40A6F /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0026D86627D636BF00B40A6F /* Double+.swift */; };
+		0026D86A27D868F500B40A6F /* OrderBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0026D86927D868F500B40A6F /* OrderBookViewController.swift */; };
+		0026D86C27D8690100B40A6F /* OrderBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0026D86B27D8690100B40A6F /* OrderBookViewModel.swift */; };
+		0026D86E27D88B4A00B40A6F /* OrderBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0026D86D27D88B4A00B40A6F /* OrderBookCell.swift */; };
+		0026D87027D88B8300B40A6F /* OrderBookWebSocketResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0026D86F27D88B8300B40A6F /* OrderBookWebSocketResponse.swift */; };
+		0026D87227D88B9E00B40A6F /* OrderBookWebSocketResponseContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0026D87127D88B9E00B40A6F /* OrderBookWebSocketResponseContent.swift */; };
+		0026D87427D88BAA00B40A6F /* OrderBookWebSocketData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0026D87327D88BAA00B40A6F /* OrderBookWebSocketData.swift */; };
+		0026D87627D88BC300B40A6F /* OrderBookViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0026D87527D88BC300B40A6F /* OrderBookViewData.swift */; };
 		003F5E5727D10C4A001D76C2 /* WebSocketRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003F5E5627D10C4A001D76C2 /* WebSocketRepository.swift */; };
 		0082D8E127C7CE8D00E65E72 /* RESTAPIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082D8E027C7CE8D00E65E72 /* RESTAPIRepository.swift */; };
 		0082D8E427C9153B00E65E72 /* AssetStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082D8E327C9153B00E65E72 /* AssetStatus.swift */; };
@@ -90,6 +97,13 @@
 		0026D86127D4A36A00B40A6F /* WebSocketInitResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketInitResponse.swift; sourceTree = "<group>"; };
 		0026D86327D4B46F00B40A6F /* WebSocketError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketError.swift; sourceTree = "<group>"; };
 		0026D86627D636BF00B40A6F /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
+		0026D86927D868F500B40A6F /* OrderBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookViewController.swift; sourceTree = "<group>"; };
+		0026D86B27D8690100B40A6F /* OrderBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookViewModel.swift; sourceTree = "<group>"; };
+		0026D86D27D88B4A00B40A6F /* OrderBookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookCell.swift; sourceTree = "<group>"; };
+		0026D86F27D88B8300B40A6F /* OrderBookWebSocketResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookWebSocketResponse.swift; sourceTree = "<group>"; };
+		0026D87127D88B9E00B40A6F /* OrderBookWebSocketResponseContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookWebSocketResponseContent.swift; sourceTree = "<group>"; };
+		0026D87327D88BAA00B40A6F /* OrderBookWebSocketData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookWebSocketData.swift; sourceTree = "<group>"; };
+		0026D87527D88BC300B40A6F /* OrderBookViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookViewData.swift; sourceTree = "<group>"; };
 		003F5E5627D10C4A001D76C2 /* WebSocketRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketRepository.swift; sourceTree = "<group>"; };
 		0082D8E027C7CE8D00E65E72 /* RESTAPIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTAPIRepository.swift; sourceTree = "<group>"; };
 		0082D8E327C9153B00E65E72 /* AssetStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetStatus.swift; sourceTree = "<group>"; };
@@ -189,6 +203,9 @@
 				0026D86127D4A36A00B40A6F /* WebSocketInitResponse.swift */,
 				E552800427D7479100F1F3A1 /* TransactionHistoryWebSocketResponse.swift */,
 				E552800627D74B5B00F1F3A1 /* TransactionHistoryWebSocketData.swift */,
+				0026D86F27D88B8300B40A6F /* OrderBookWebSocketResponse.swift */,
+				0026D87127D88B9E00B40A6F /* OrderBookWebSocketResponseContent.swift */,
+				0026D87327D88BAA00B40A6F /* OrderBookWebSocketData.swift */,
 			);
 			path = WebSocket;
 			sourceTree = "<group>";
@@ -201,6 +218,16 @@
 				0026D86327D4B46F00B40A6F /* WebSocketError.swift */,
 			);
 			path = WebSocket;
+			sourceTree = "<group>";
+		};
+		0026D86827D8661800B40A6F /* OrderBook */ = {
+			isa = PBXGroup;
+			children = (
+				0026D86927D868F500B40A6F /* OrderBookViewController.swift */,
+				0026D86D27D88B4A00B40A6F /* OrderBookCell.swift */,
+				0026D86B27D8690100B40A6F /* OrderBookViewModel.swift */,
+			);
+			path = OrderBook;
 			sourceTree = "<group>";
 		};
 		0082D8E227C9152400E65E72 /* Models */ = {
@@ -220,6 +247,7 @@
 				E598E56D27CF5A21006D7659 /* TransactionHistoryData.swift */,
 				E598E56B27CF55BC006D7659 /* TransactionHistoryViewData.swift */,
 				8744A95527D64930002BC3AC /* CandlestickEntity.swift */,
+				0026D87527D88BC300B40A6F /* OrderBookViewData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -321,6 +349,7 @@
 				87C6B44427C663B400F880DE /* Pager */,
 				E598E56627CF4C6E006D7659 /* TransactionHistory */,
 				E552800A27D76BDB00F1F3A1 /* Chart */,
+				0026D86827D8661800B40A6F /* OrderBook */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -692,8 +721,10 @@
 				E598E56A27CF5272006D7659 /* TransactionHistoryViewModel.swift in Sources */,
 				0082D8E127C7CE8D00E65E72 /* RESTAPIRepository.swift in Sources */,
 				87C6B43427C6599300F880DE /* Coordinator.swift in Sources */,
+				0026D87227D88B9E00B40A6F /* OrderBookWebSocketResponseContent.swift in Sources */,
 				0082D8E727C9158C00E65E72 /* GeneralCodingKeys.swift in Sources */,
 				0082D8E127C7CE8D00E65E72 /* RESTAPIRepository.swift in Sources */,
+				0026D87427D88BAA00B40A6F /* OrderBookWebSocketData.swift in Sources */,
 				87C6B43427C6599300F880DE /* Coordinator.swift in Sources */,
 				0082D8E727C9158C00E65E72 /* GeneralCodingKeys.swift in Sources */,
 				0082D91327CE5B8600E65E72 /* CoinListViewModel.swift in Sources */,
@@ -703,7 +734,9 @@
 				0082D8ED27C9164500E65E72 /* TransactionHistory.swift in Sources */,
 				0082D8E427C9153B00E65E72 /* AssetStatus.swift in Sources */,
 				0026D86727D636BF00B40A6F /* Double+.swift in Sources */,
+				0026D87627D88BC300B40A6F /* OrderBookViewData.swift in Sources */,
 				0082D8EB27C9163C00E65E72 /* OrderBook.swift in Sources */,
+				0026D87027D88B8300B40A6F /* OrderBookWebSocketResponse.swift in Sources */,
 				E598E56827CF4C89006D7659 /* TransactionHistoryViewController.swift in Sources */,
 				87C6B43F27C65EED00F880DE /* CoinListViewController.swift in Sources */,
 				87C6B44627C6640800F880DE /* PagerViewController.swift in Sources */,
@@ -727,10 +760,13 @@
 				0082D8E927C915F200E65E72 /* Ticker.swift in Sources */,
 				87F002D427C9206B001E8BDC /* TickerAll.swift in Sources */,
 				0026D86227D4A36A00B40A6F /* WebSocketInitResponse.swift in Sources */,
+				0026D86C27D8690100B40A6F /* OrderBookViewModel.swift in Sources */,
+				0026D86E27D88B4A00B40A6F /* OrderBookCell.swift in Sources */,
 				878D0EFD27C4F3B40006D255 /* AppDelegate.swift in Sources */,
 				0082D91527CE5BE700E65E72 /* TickerViewData.swift.swift in Sources */,
 				0082D8EF27CB2C5E00E65E72 /* CoinCell.swift in Sources */,
 				0026D85B27D4995B00B40A6F /* TickerWebSocketResponse.swift.swift in Sources */,
+				0026D86A27D868F500B40A6F /* OrderBookViewController.swift in Sources */,
 				87C6B44127C65EF700F880DE /* LeaderBoardViewController.swift in Sources */,
 				E552800E27D76F9A00F1F3A1 /* CoinChartViewModel.swift in Sources */,
 				E552800C27D76BFC00F1F3A1 /* CoinChartViewController.swift in Sources */,

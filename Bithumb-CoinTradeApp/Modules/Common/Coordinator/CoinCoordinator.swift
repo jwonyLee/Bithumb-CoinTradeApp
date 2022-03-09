@@ -65,8 +65,17 @@ extension CoinCoordinator: PagerCoodinatable {
         //
     }
 
-    func showOrderbook() {
-        //
+    func showOrderbook(coinName: String) {
+        let viewModel = OrderBookViewModel(
+            websocketService: webSocketService,
+            coinName: coinName
+        )
+        
+        let viewController = OrderBookViewController(
+            viewModel: viewModel,
+            coinName: coinName
+        )
+        navigationController.pushViewController(viewController, animated: true)
     }
 
     func showTransactionHistory(coinName: String) {
