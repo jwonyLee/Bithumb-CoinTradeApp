@@ -24,6 +24,8 @@
 		0082D91327CE5B8600E65E72 /* CoinListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082D91227CE5B8600E65E72 /* CoinListViewModel.swift */; };
 		0082D91527CE5BE700E65E72 /* TickerViewData.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082D91427CE5BE700E65E72 /* TickerViewData.swift.swift */; };
 		37DC6D69BB7E662B6DC0E1BB /* Pods_Bithumb_CoinTradeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D890884C2A7465502B65CF36 /* Pods_Bithumb_CoinTradeApp.framework */; };
+		8744A95627D64930002BC3AC /* CandlestickEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744A95527D64930002BC3AC /* CandlestickEntity.swift */; };
+		8744A95827D64DAC002BC3AC /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744A95727D64DAC002BC3AC /* RealmRepository.swift */; };
 		878D0EFD27C4F3B40006D255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878D0EFC27C4F3B40006D255 /* AppDelegate.swift */; };
 		878D0EFF27C4F3B40006D255 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878D0EFE27C4F3B40006D255 /* SceneDelegate.swift */; };
 		878D0F0127C4F3B40006D255 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878D0F0027C4F3B40006D255 /* ViewController.swift */; };
@@ -98,6 +100,8 @@
 		0082D91427CE5BE700E65E72 /* TickerViewData.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerViewData.swift.swift; sourceTree = "<group>"; };
 		1F8F9D108BC468AEAE39293F /* Pods-Bithumb-CoinTradeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bithumb-CoinTradeApp.release.xcconfig"; path = "Target Support Files/Pods-Bithumb-CoinTradeApp/Pods-Bithumb-CoinTradeApp.release.xcconfig"; sourceTree = "<group>"; };
 		4124A3D8295AA7391DD0913F /* Pods_Bithumb_CoinTradeApp_Bithumb_CoinTradeAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bithumb_CoinTradeApp_Bithumb_CoinTradeAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8744A95527D64930002BC3AC /* CandlestickEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandlestickEntity.swift; sourceTree = "<group>"; };
+		8744A95727D64DAC002BC3AC /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 		878D0EF927C4F3B40006D255 /* Bithumb-CoinTradeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bithumb-CoinTradeApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		878D0EFC27C4F3B40006D255 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		878D0EFE27C4F3B40006D255 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 				0082D8EC27C9164500E65E72 /* TransactionHistory.swift */,
 				E598E56D27CF5A21006D7659 /* TransactionHistoryData.swift */,
 				E598E56B27CF55BC006D7659 /* TransactionHistoryViewData.swift */,
+				8744A95527D64930002BC3AC /* CandlestickEntity.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -406,6 +411,7 @@
 				E5F565A027C7C8F20002599F /* BithumbEndpointCases.swift */,
 				0082D8E027C7CE8D00E65E72 /* RESTAPIRepository.swift */,
 				0026D86527D4B48100B40A6F /* WebSocket */,
+				8744A95727D64DAC002BC3AC /* RealmRepository.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -696,6 +702,7 @@
 				87E7A78527CFA9F700D8C3D9 /* LeaderBoardViewModel.swift in Sources */,
 				E552800727D74B5B00F1F3A1 /* TransactionHistoryWebSocketData.swift in Sources */,
 				87E2687C27D3A0B50012753B /* Candlestick.swift in Sources */,
+				8744A95627D64930002BC3AC /* CandlestickEntity.swift in Sources */,
 				87C6B43F27C65EED00F880DE /* CoinListViewController.swift in Sources */,
 				0026D86027D4A01200B40A6F /* WebSocketService.swift in Sources */,
 				003F5E5727D10C4A001D76C2 /* WebSocketRepository.swift in Sources */,
@@ -720,6 +727,7 @@
 				E5F5659E27C7C8CA0002599F /* Endpoint.swift in Sources */,
 				E552800527D7479100F1F3A1 /* TransactionHistoryWebSocketResponse.swift in Sources */,
 				E5F565A327C924120002599F /* OrderBookData.swift in Sources */,
+				8744A95827D64DAC002BC3AC /* RealmRepository.swift in Sources */,
 				87CCA58E27CDD99E00C5E022 /* LabelWithRoundImageView.swift in Sources */,
 				E5F565A127C7C8F20002599F /* BithumbEndpointCases.swift in Sources */,
 				878D0EFF27C4F3B40006D255 /* SceneDelegate.swift in Sources */,
