@@ -11,33 +11,52 @@ import RxCocoa
 import SnapKit
 import Then
 
-protocol PagerCoodinatable {
-    func showChart()
-    func showOrderbook(coinName: String)
-    func showTransactionHistory(coinName: String)
-    func showChart(coinName: String)
-}
-
 final class PagerViewController: BaseViewController {
-    private var coinName: String
-    
-    private let transactionHistoryButton = UIButton().then {
-        $0.setTitle("채결 내역", for: .normal)
-        $0.setTitleColor(.systemBlue, for: .normal)
+    private lazy var headerStackView = UIStackView(arrangedSubviews: [transactionHistoryButton, chartButton, orderbookButton]).then {
+        $0.axis = .horizontal
+        $0.distribution = .fillEqually
+        $0.spacing = 8
     }
-    
+
+    private let transactionHistoryButton = UIButton().then {
+        $0.setTitle("체결 내역", for: .normal)
+        $0.setTitleColor(.black, for: .normal)
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = UIColor.black.cgColor
+        $0.layer.cornerRadius = 8
+        $0.clipsToBounds = true
+    }
+
     private let chartButton = UIButton().then {
         $0.setTitle("차트", for: .normal)
-        $0.setTitleColor(.systemBlue, for: .normal)
+        $0.setTitleColor(.gray, for: .normal)
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = UIColor.gray.cgColor
+        $0.layer.cornerRadius = 8
+        $0.clipsToBounds = true
     }
-    
-    private var coordinator: PagerCoodinatable
 
-    init(
-        coinName: String,
-        coordinator: PagerCoodinatable
-    ) {
-        self.coinName = coinName
+    private let orderbookButton = UIButton().then {
+        $0.setTitle("호가 정보", for: .normal)
+        $0.setTitleColor(.gray, for: .normal)
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = UIColor.gray.cgColor
+        $0.layer.cornerRadius = 8
+        $0.clipsToBounds = true
+    }
+
+    private let containerView: UIView = UIView()
+
+    var transactionHistoryViewController: TransactionHistoryViewController?
+    var chartViewController: UIViewController?
+    var orderbookViewController: UIViewController?
+
+    private var coordinator: CoinListCoordinatable
+
+    // MARK: - Constants
+    private let defaultMargin: CGFloat = 16.0
+
+    init(coordinator: CoinListCoordinatable) {
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
@@ -48,28 +67,29 @@ final class PagerViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        add(asChildViewController: transactionHistoryViewController)
     }
     
     // MARK: - setUI
     
     override func setUI() {
-        view.addSubview(transactionHistoryButton)
-        view.addSubview(chartButton)
+        view.addSubviews(headerStackView, containerView)
     }
     
     // MARK: - setConstraint
     
     override func setConstraint() {
-        transactionHistoryButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(200)
-            make.leading.trailing.equalToSuperview()
-            make.height.equalTo(30)
+        headerStackView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(defaultMargin)
+            $0.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).offset(defaultMargin)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).offset(-defaultMargin)
         }
-        
-        chartButton.snp.makeConstraints { make in
-            make.top.equalTo(transactionHistoryButton.snp.bottom).offset(20)
-            make.leading.trailing.equalToSuperview()
-            make.height.equalTo(30)
+
+        containerView.snp.makeConstraints {
+            $0.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).offset(defaultMargin)
+            $0.top.equalTo(headerStackView.snp.bottom).offset(defaultMargin)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).offset(-defaultMargin)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
     }
     
@@ -77,15 +97,40 @@ final class PagerViewController: BaseViewController {
     
     override func subscribeUI() {
         transactionHistoryButton.rx.tap
-            .subscribe(with: self, onNext: { owner, _ in
-                owner.coordinator.showTransactionHistory(coinName: owner.coinName)
-            })
+            .subscribe(with: self) { owner, _ in
+                owner.add(asChildViewController: owner.transactionHistoryViewController)
+            }
             .disposed(by: disposeBag)
-        
         chartButton.rx.tap
-            .subscribe(with: self, onNext: { owner, _ in
-                owner.coordinator.showChart(coinName: owner.coinName)
-            })
+            .subscribe(with: self) { owner, _ in
+                owner.add(asChildViewController: owner.chartViewController)
+            }
             .disposed(by: disposeBag)
+        orderbookButton.rx.tap
+            .subscribe(with: self) { owner, _ in
+                owner.add(asChildViewController: owner.orderbookViewController)
+            }
+            .disposed(by: disposeBag)
+    }
+
+    private func add(asChildViewController child: UIViewController?) {
+        guard let child = child else {
+            return
+        }
+
+        addChild(child)
+        containerView.addSubviews(child.view)
+
+        child.view.snp.makeConstraints {
+            $0.leading.top.trailing.bottom.equalToSuperview()
+        }
+
+        child.didMove(toParent: self)
+    }
+
+    private func remote(asChildViewController child: UIViewController) {
+        child.willMove(toParent: nil)
+        child.view.removeFromSuperview()
+        child.removeFromParent()
     }
 }

@@ -11,11 +11,8 @@ import RxCocoa
 import SnapKit
 import Then
 
-protocol TransactionHistoryCoodinatable {
-}
-
 final class TransactionHistoryViewController: BaseViewController {
-    private let coordinator: TransactionHistoryCoodinatable
+    private let coordinator: CoinListCoordinatable
     private let viewModel: TransactionHistoryViewModelType
     
     private let header = UITextView().then {
@@ -32,7 +29,7 @@ final class TransactionHistoryViewController: BaseViewController {
     private var dataSource: UITableViewDiffableDataSource<Int, TransactionHistoryViewData>?
 
     init(
-        coordinator: TransactionHistoryCoodinatable,
+        coordinator: CoinListCoordinatable,
         viewModel: TransactionHistoryViewModelType
     ) {
         self.coordinator = coordinator

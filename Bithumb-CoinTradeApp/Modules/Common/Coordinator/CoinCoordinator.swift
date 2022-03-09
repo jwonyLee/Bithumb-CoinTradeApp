@@ -49,48 +49,20 @@ final class CoinCoordinator: Coordinator {
 // MARK: - CoinListCoordinatable
 extension CoinCoordinator: CoinListCoordinatable {
     func showPager(coinName: String) {
-        let pagerViewController = PagerViewController(coinName: coinName, coordinator: self)
+        let pagerViewController = PagerViewController(coordinator: self)
+
+        let transactionViewModel: TransactionHistoryViewModelType = TransactionHistoryViewModel(coinName: coinName, webSocketService: webSocketService)
+        let transactionHistoryViewController = TransactionHistoryViewController(coordinator: self, viewModel: transactionViewModel)
+        pagerViewController.transactionHistoryViewController = transactionHistoryViewController
+
+        let chartViewModel: CoinChartViewModel = CoinChartViewModel(coinName: coinName, restAPIRepository: restAPIRepository)
+        let chartViewController = CoinChartViewController(coordinator: self, viewModel: chartViewModel)
+        pagerViewController.chartViewController = chartViewController
+
+        let orderbookViewModel: OrderBookViewModelType = OrderBookViewModel(websocketService: webSocketService, coinName: coinName)
+        let orderbookViewController: OrderBookViewController = .init(viewModel: orderbookViewModel, coinName: coinName)
+        pagerViewController.orderbookViewController = orderbookViewController
+
         navigationController.pushViewController(pagerViewController, animated: true)
-    }
-}
-
-// MARK: - TransactionHistoryCoodinatable
-extension CoinCoordinator: TransactionHistoryCoodinatable {
-    
-}
-
-// MARK: - PagerCoordinatable
-extension CoinCoordinator: PagerCoodinatable {
-    func showChart() {
-        //
-    }
-
-    func showOrderbook(coinName: String) {
-        let viewModel = OrderBookViewModel(
-            websocketService: webSocketService,
-            coinName: coinName
-        )
-        
-        let viewController = OrderBookViewController(
-            viewModel: viewModel,
-            coinName: coinName
-        )
-        navigationController.pushViewController(viewController, animated: true)
-    }
-
-    func showTransactionHistory(coinName: String) {
-        let viewModel = TransactionHistoryViewModel(coinName: coinName, webSocketService: webSocketService)
-        
-        let transactionHistoryViewController = TransactionHistoryViewController(coordinator: self, viewModel: viewModel)
-        navigationController.pushViewController(transactionHistoryViewController, animated: true)
-    }
-}
-
-extension CoinCoordinator: CoinChartCoodinatable {
-    func showChart(coinName: String) {
-        let viewModel = CoinChartViewModel(coinName: coinName, restAPIRepository: restAPIRepository)
-        
-        let charViewController = CoinChartViewController(coordinator: self, viewModel: viewModel)
-        navigationController.pushViewController(charViewController, animated: true)
     }
 }

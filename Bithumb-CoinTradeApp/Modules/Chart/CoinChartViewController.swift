@@ -12,11 +12,8 @@ import SnapKit
 import Then
 import Charts
 
-protocol CoinChartCoodinatable {
-}
-
 final class CoinChartViewController: BaseViewController {
-    private let coordinator: CoinChartCoodinatable
+    private let coordinator: CoinListCoordinatable
     private let viewModel: CoinChartViewModel
     
     let chart = CandleStickChartView().then {
@@ -28,7 +25,7 @@ final class CoinChartViewController: BaseViewController {
     }
     
     init(
-        coordinator: CoinChartCoodinatable,
+        coordinator: CoinListCoordinatable,
         viewModel: CoinChartViewModel
     ) {
         self.coordinator = coordinator
