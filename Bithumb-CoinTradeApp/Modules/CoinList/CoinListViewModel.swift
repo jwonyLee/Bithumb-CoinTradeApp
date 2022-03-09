@@ -57,7 +57,6 @@ final class CoinListViewModel: CoinListViewModelType {
                 coinName: coinName,
                 currentPrice: tickerData.openingPrice,
                 fluctateRate: tickerData.fluctateRate24H,
-                unitsTraded: tickerData.unitsTraded,
                 isLiked: false
             )
         }
@@ -75,7 +74,6 @@ final class CoinListViewModel: CoinListViewModelType {
                 if let index = owner.tickerViewDataList.firstIndex(where: { $0.coinName == responseData.coinName }) {
                     owner.tickerViewDataList[index].currentPrice = responseData.openPrice
                     owner.tickerViewDataList[index].fluctateRate = responseData.chgRate
-                    owner.tickerViewDataList[index].unitsTraded = responseData.volume
                     
                     owner.changeList(to: owner.listType)
                 }
@@ -99,7 +97,7 @@ final class CoinListViewModel: CoinListViewModelType {
         case .like:
             tickerViewDataSubject.onNext(tickerViewDataList.filter(\.isLiked))
         case .popular:
-            tickerViewDataSubject.onNext(tickerViewDataList.sorted { $0.tradedCount > $1.tradedCount })
+            tickerViewDataSubject.onNext(tickerViewDataList.sorted { $0.changeRate > $1.changeRate })
         }
     }
 }
