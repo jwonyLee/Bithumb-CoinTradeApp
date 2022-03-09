@@ -76,3 +76,12 @@ extension CoinCoordinator: PagerCoodinatable {
         navigationController.pushViewController(transactionHistoryViewController, animated: true)
     }
 }
+
+extension CoinCoordinator: CoinChartCoodinatable {
+    func showChart(coinName: String) {
+        let viewModel = CoinChartViewModel(coinName: coinName, restAPIRepository: restAPIRepository)
+        
+        let charViewController = CoinChartViewController(coordinator: self, viewModel: viewModel)
+        navigationController.pushViewController(charViewController, animated: true)
+    }
+}

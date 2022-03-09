@@ -51,5 +51,15 @@ enum CandlestickData: Codable {
         case .string(let string):
             return string
         }
+
+    }
+    
+    var rawValue: Double {
+        switch self {
+        case let .integer(x):
+            return Double(x)
+        case let .string(x):
+            return Double(x) ?? -1
+        }
     }
 }
