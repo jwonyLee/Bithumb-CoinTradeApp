@@ -10,7 +10,7 @@ import UIKit
 class OrderBookCell: UITableViewCell {
     private let askQuantityLabel = UILabel().then {
         $0.font = .preferredFont(forTextStyle: .caption1)
-        $0.textColor = .blue
+        $0.textColor = .systemBlue
         $0.isHidden = true
     }
     
@@ -20,7 +20,7 @@ class OrderBookCell: UITableViewCell {
     
     private let bidQuantityLabel = UILabel().then {
         $0.font = .preferredFont(forTextStyle: .caption1)
-        $0.textColor = .red
+        $0.textColor = .systemRed
         $0.isHidden = true
     }
     
@@ -72,10 +72,10 @@ class OrderBookCell: UITableViewCell {
         
         switch viewData.orderType {
         case .ask:
-            askQuantityLabel.text = viewData.quantity
+            askQuantityLabel.text = String(format: "%.4f", viewData.quantityToDouble)
             askQuantityLabel.isHidden = false
         case .bid:
-            bidQuantityLabel.text = viewData.quantity
+            bidQuantityLabel.text = String(format: "%.4f", viewData.quantityToDouble)
             bidQuantityLabel.isHidden = false
         }
     }

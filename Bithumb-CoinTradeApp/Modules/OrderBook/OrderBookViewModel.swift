@@ -50,10 +50,37 @@ class OrderBookViewModel: OrderBookViewModelType {
                         )
                     }
                     .filter { $0.quantityToDouble > 0 }
+                
+                var newAskList = viewData
+                    .filter { $0.orderType == .ask }
+                    .sorted { $0.priceToDouble > $1.priceToDouble }
+                                
+                let previousAskList = owner.orderBookDataList
+                    .filter {
+                        $0.orderType == .ask
+                        && $0.priceToDouble > newAskList.first?.priceToDouble ?? 0
+                    }
                     .sorted { $0.priceToDouble > $1.priceToDouble }
                 
-                owner.orderBookDataList = viewData
-                owner.orderBookDataSubject.onNext(viewData)
+                newAskList.insert(contentsOf: previousAskList, at: 0)
+                newAskList = newAskList.suffix(50)
+                
+                var newBidList = viewData
+                    .filter { $0.orderType == .bid }
+                    .sorted { $0.priceToDouble > $1.priceToDouble }
+                
+                let previousBidList = owner.orderBookDataList
+                    .filter {
+                        $0.orderType == .bid
+                        && $0.priceToDouble < newBidList.last?.priceToDouble ?? 0
+                    }
+                    .sorted { $0.priceToDouble > $1.priceToDouble }
+                
+                newBidList.append(contentsOf: previousBidList)
+                newBidList = Array(newBidList.prefix(50))
+                
+                owner.orderBookDataList = newAskList.suffix(10) + newBidList.prefix(10)
+                owner.orderBookDataSubject.onNext(owner.orderBookDataList)
             })
             .disposed(by: disposBag)
     }
