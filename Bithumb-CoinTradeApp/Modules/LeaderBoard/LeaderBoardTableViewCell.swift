@@ -9,16 +9,15 @@ import UIKit
 
 final class LeaderBoardTableViewCell: UITableViewCell {
     // MARK: - Views
-    private let iconImageView = UIImageView().then {
+    private let iconLabel = UILabel().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.clipsToBounds = true
-        $0.backgroundColor = .blue
+        $0.adjustsFontForContentSizeCategory = true
+        $0.font = UIFont.preferredFont(forTextStyle: .title1)
     }
     private let titleLabel = UILabel().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.adjustsFontForContentSizeCategory = true
         $0.font = UIFont.preferredFont(forTextStyle: .headline)
-        $0.text = "비트코인"
         $0.textColor = .label
         $0.numberOfLines = 0
     }
@@ -38,6 +37,19 @@ final class LeaderBoardTableViewCell: UITableViewCell {
         $0.spacing = 8
     }
 
+    private var statusEmoji: (Bool, Bool) -> String = {
+        switch ($0, $1) {
+        case (true, true):
+            return "🥰"
+        case (true, false):
+            return "🥺"
+        case (false, true):
+            return "😕"
+        case (false, false):
+            return "😩"
+        }
+    }
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setUI()
@@ -48,14 +60,8 @@ final class LeaderBoardTableViewCell: UITableViewCell {
         fatalError("init?(coder:) has not implemented.")
     }
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        DispatchQueue.main.async {
-            self.iconImageView.layer.cornerRadius = self.iconImageView.frame.height / 2
-        }
-    }
-
     func configure(name: String, canDeposit: Bool, canWithDrawal: Bool) {
+        iconLabel.text = statusEmoji(canDeposit, canWithDrawal)
         titleLabel.text = name
         topDescriptionLabel.configure(
             text: "입금 가능",
@@ -70,7 +76,7 @@ final class LeaderBoardTableViewCell: UITableViewCell {
     }
 
     private func setUI() {
-        contentView.addSubviews(iconImageView, titleLabel, descriptionStack)
+        contentView.addSubviews(iconLabel, titleLabel, descriptionStack)
 
         // TODO: 동적으로 accessibilityLabel 변경
         topDescriptionLabel.accessibilityLabel = "입금 가능"
@@ -78,24 +84,24 @@ final class LeaderBoardTableViewCell: UITableViewCell {
     }
 
     private func setConstraint() {
-        iconImageView.snp.makeConstraints {
+        iconLabel.snp.makeConstraints {
             $0.leading.equalTo(contentView.layoutMarginsGuide.snp.leading).offset(8)
             $0.top.equalTo(contentView.layoutMarginsGuide.snp.top).offset(16)
             $0.bottom.equalTo(contentView.layoutMarginsGuide.snp.bottom).offset(-16)
-            $0.height.equalTo(iconImageView.snp.width)
+            $0.height.equalTo(iconLabel.snp.width)
         }
 
         titleLabel.snp.makeConstraints {
-            $0.leading.equalTo(iconImageView.snp.trailing).offset(8)
-            $0.top.equalTo(iconImageView.snp.top)
+            $0.leading.equalTo(iconLabel.snp.trailing).offset(8)
+            $0.top.equalTo(iconLabel.snp.top)
             $0.trailing.equalTo(descriptionStack.snp.leading).offset(-8)
-            $0.bottom.equalTo(iconImageView.snp.bottom)
+            $0.bottom.equalTo(iconLabel.snp.bottom)
         }
 
         descriptionStack.snp.makeConstraints {
-            $0.top.equalTo(iconImageView.snp.top)
+            $0.top.equalTo(iconLabel.snp.top)
             $0.trailing.equalTo(contentView.layoutMarginsGuide.snp.trailing).offset(-8)
-            $0.bottom.equalTo(iconImageView.snp.bottom)
+            $0.bottom.equalTo(iconLabel.snp.bottom)
         }
     }
 }
