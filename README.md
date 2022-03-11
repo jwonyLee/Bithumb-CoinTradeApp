@@ -27,46 +27,37 @@
 ## 🖥 기술 스택 / 라이브러리 / 라이브러리 선택 이유
 
 * iOS Deployment Target: 14.0
-  * 애플 스토어의 버전 지분 기준 14이상이 압도적이었음 
-  * @@@@@@@사진 또는 링크 추가@@@@@@@
-
-<img width="317" alt="2022-03-12 기준" src="https://user-images.githubusercontent.com/15073405/157895512-fdbd8e60-dd49-4354-9140-695bcda2bb10.png">
-
-
+  * 애플 스토어의 버전 지분이 14 이상이 압도적이었음 [참고](https://developer.apple.com/support/app-store/)  
+    <img width="317" alt="2022-03-12 기준" src="https://user-images.githubusercontent.com/15073405/157895512-fdbd8e60-dd49-4354-9140-695bcda2bb10.png">
 * Xcode Version: 13.1
   * 재영이랑 힉스가 13.1 이어서 리을이 맞춰줌
 * Architecture: MVVM
   * MVC 보다는 계층이 분리되어 책임/코드 분리 측면에서 용이함
   * 다른 아키텍쳐에 비해 팀원들이 익숙해 학습 비용이 낮음
-  * RxSwift와 궁합이 잘맞음
+  * `RxSwift`와 궁합이 잘 맞음
 * UI: UIKit, Code based
   * 스토리보드는 충돌 및 코드 파악이 쉽지 않음
   * 코드로 만든 뷰는 재활용 가능
-  * SwiftUI에 익숙하지 않음
+  * `SwiftUI` 에 익숙하지 않음
 
-* Asynchronous Programming: RxSwift
-  * 비동기 처리에 많은 도움을 줌
-  * Combine 보다 RxSwift가 팀원들이 익숙해 학습 비용이 낮음
-  * RxCocoa등 다양한 익스텐션 활용 가능 -> 생산성 증가
-* SnapKit, Then
-  * 조금 더 편하고 생산성 증가를 위해 채택
-* Charts
-  * 차트를 쉽게 구현하게 하기 위해 Charts 라이브러리 채택
-  * 차트 라이브러리 중 가장 유명 -> 참고할만한 자료가 많음
-* Alamofire, Starscream (Web Socket)
-  * 네크워크 요청을 쉽게 하기 위해 채택
-  * URLSession 웹소켓은 직접 계속 receive를 호출해야 데이터를 받아올 수 있음 -> 성능/구현 상으로 깔끔해보이지 않음
-  * Starscream은 delegate로 이벤트가 발생할 때마다 알려줌
-* Code Convention: SwiftLint
-  * 협업시 코딩 컨벤션 유지를 위해 사용
-* Database: Realm
-  * 속도가 빠름 > CoreData, SQLite
-  * Realm Studio를 통해 데이터 저장된 것을 쉽게 확인 가능
-* Dependency Manager: Cocoapods
-  * SPM, Carthage가 지원하지 않는 라이브러리가 존재할 수 있음 -> SwiftLint
-  * 팀원 모두 코코아팟이 익숙함
-
+| 라이브러리 | 용도 | 선택 이유 |
+| :-: | :-: | --- |
+| RxSwift | 비동기 프로그래밍 | Combine 보다 팀원들이 익숙해서 학습 비용이 낮고, 다양한 익스텐션 활용을 인해 생산성 증가 |
+| SnapKit | 오토레이아웃 | 생산성 증가 |
+| Then | 뷰 | 생산성 증가 |
+| Charts | 뷰 | 차트 라이브러리 중에서 가장 유명하고, 참고 자료가 많음 |
+| Alamofire | 네트워크 | 네트워크 요청을 쉽게 하기 위해서 채택 | 
+| Starscream | 네트워크 | URLSession으로 구현하는 웹소켓은 직접/계속 recevice를 호출해야 데이터를 받아올 수 있음<br /> → 성능/구현 상으로 깔끔하지 않음 |
+| SwiftLint | 코드 컨벤션 | 협업 시 코딩 컨벤션을 유지하기 위해 채택 |
+| Realm | 데이터베이스 | CoreData, SQLite 대비 속도가 빠르고, Realm Studio를 통해 데이터를 쉽게 확인 가능 |
+| Cocoapods | Dependency Manager | SPM, Carthage가 지원하지 않는 라이브러리도 지원함 |
 
 ## 🎨 화면 설계
 
 ![image](https://user-images.githubusercontent.com/15073405/155553921-aeafe20a-2fec-4d7f-99d5-6c58b4bdc9ff.png)
+
+## Contributors
+
+| [리을](https://github.com/jwonyLee) | [재영](https://github.com/korJAEYOUNGYUN) | [힉스](https://github.com/higgs1022) |
+| :-: | :-: | :-: |
+| ![리을](https://avatars.githubusercontent.com/u/15073405?v=4) | ![재영](https://avatars.githubusercontent.com/u/48082827?v=4) | ![힉스](https://avatars.githubusercontent.com/u/25359605?v=4)
