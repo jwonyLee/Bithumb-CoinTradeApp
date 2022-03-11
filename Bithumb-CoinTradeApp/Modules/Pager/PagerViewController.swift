@@ -99,16 +99,19 @@ final class PagerViewController: BaseViewController {
         transactionHistoryButton.rx.tap
             .subscribe(with: self) { owner, _ in
                 owner.add(asChildViewController: owner.transactionHistoryViewController)
+                owner.setEnabled(owner.transactionHistoryButton)
             }
             .disposed(by: disposeBag)
         chartButton.rx.tap
             .subscribe(with: self) { owner, _ in
                 owner.add(asChildViewController: owner.chartViewController)
+                owner.setEnabled(owner.chartButton)
             }
             .disposed(by: disposeBag)
         orderbookButton.rx.tap
             .subscribe(with: self) { owner, _ in
                 owner.add(asChildViewController: owner.orderbookViewController)
+                owner.setEnabled(owner.orderbookButton)
             }
             .disposed(by: disposeBag)
     }
@@ -132,5 +135,19 @@ final class PagerViewController: BaseViewController {
         child.willMove(toParent: nil)
         child.view.removeFromSuperview()
         child.removeFromParent()
+    }
+
+    private func setEnabled(_ button: UIButton) {
+        headerStackView.arrangedSubviews
+            .compactMap { $0 as? UIButton }
+            .forEach {
+                if $0 == button {
+                    $0.layer.borderColor = UIColor.label.cgColor
+                    $0.setTitleColor(.label, for: .normal)
+                } else {
+                    $0.layer.borderColor = UIColor.gray.cgColor
+                    $0.setTitleColor(.gray, for: .normal)
+                }
+            }
     }
 }

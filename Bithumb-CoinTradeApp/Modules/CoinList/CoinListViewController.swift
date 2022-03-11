@@ -87,6 +87,8 @@ final class CoinListViewController: BaseViewController {
     // MARK: - setUI
     
     override func setUI() {
+        navigationItem.title = "코인 목록"
+
         view.addSubview(headerStackView)
         view.addSubview(tableView)
         

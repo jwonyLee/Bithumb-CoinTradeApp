@@ -24,7 +24,7 @@ final class CoinCoordinator: Coordinator {
     
     func start() {
         let mainTabBarViewController = MainTabBarViewController()
-        
+
         let coinListViewModel = CoinListViewModel(
             webSocketService: webSocketService,
             restAPIRepository: restAPIRepository
@@ -32,15 +32,15 @@ final class CoinCoordinator: Coordinator {
         let coinListViewController = CoinListViewController(coordinator: self, viewModel: coinListViewModel)
         
         coinListViewController.tabBarItem = UITabBarItem(title: "코인 목록",
-                                                         image: nil,
+                                                         image: UIImage(systemName: "bitcoinsign.circle"),
                                                          selectedImage: nil)
         
         let leaderBoardViewModel: LeaderBoardViewModelType = LeaderBoardViewModel(repository: restAPIRepository)
         let leaderBoardViewController = LeaderBoardViewController(viewModel: leaderBoardViewModel)
         leaderBoardViewController.tabBarItem = UITabBarItem(title: "입출금 현황",
-                                                            image: nil,
+                                                            image: UIImage(systemName: "cart"),
                                                             selectedImage: nil)
-        
+
         mainTabBarViewController.viewControllers = [coinListViewController, leaderBoardViewController]
         navigationController.pushViewController(mainTabBarViewController, animated: true)
     }

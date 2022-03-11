@@ -15,7 +15,7 @@ final class MainTabBarViewController: UITabBarController {
             let tabBarAppearance: UITabBarAppearance = UITabBarAppearance()
             tabBarAppearance.configureWithOpaqueBackground()
             
-            let barTintColor: UIColor = .white
+            let barTintColor: UIColor = .systemBackground
             tabBarAppearance.backgroundColor = barTintColor
                         
             self.tabBar.standardAppearance = tabBarAppearance
