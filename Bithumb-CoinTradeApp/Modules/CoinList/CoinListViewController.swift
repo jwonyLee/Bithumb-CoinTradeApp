@@ -32,9 +32,9 @@ final class CoinListViewController: BaseViewController {
     
     private let krwButton = UIButton().then {
         $0.setTitle("원화", for: .normal)
-        $0.setTitleColor(.black, for: .normal)
+        $0.setTitleColor(.label, for: .normal)
         $0.layer.borderWidth = 1
-        $0.layer.borderColor = UIColor.black.cgColor
+        $0.layer.borderColor = UIColor.label.cgColor
         $0.layer.cornerRadius = 8
         $0.clipsToBounds = true
     }
@@ -183,14 +183,14 @@ final class CoinListViewController: BaseViewController {
     private func selectHeaderButton(_ type: CoinListType) {
         switch type {
         case .krw:
-            krwButton.setTitleColor(.black, for: .normal)
-            krwButton.layer.borderColor = UIColor.black.cgColor
+            krwButton.setTitleColor(.label, for: .normal)
+            krwButton.layer.borderColor = UIColor.label.cgColor
         case .like:
-            likeButton.setTitleColor(.black, for: .normal)
-            likeButton.layer.borderColor = UIColor.black.cgColor
+            likeButton.setTitleColor(.label, for: .normal)
+            likeButton.layer.borderColor = UIColor.label.cgColor
         case .popular:
-            popularButton.setTitleColor(.black, for: .normal)
-            popularButton.layer.borderColor = UIColor.black.cgColor
+            popularButton.setTitleColor(.label, for: .normal)
+            popularButton.layer.borderColor = UIColor.label.cgColor
         }
     }
     
@@ -239,6 +239,7 @@ final class CoinListViewController: BaseViewController {
 
 extension CoinListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         coordinator.showPager(coinName: dataSource?.itemIdentifier(for: indexPath)?.coinName ?? "")
     }
 }

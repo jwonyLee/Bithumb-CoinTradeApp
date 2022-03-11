@@ -77,12 +77,10 @@ final class CoinChartViewController: BaseViewController {
         var index = 0
         var myEntries: [CandleChartDataEntry] = []
         for element in data {
-//            let timestanp = element[0].rawValue
             let startPrice = element[1].rawValue
             let endPrice = element[2].rawValue
             let maxPrice = element[3].rawValue
             let minPrice = element[4].rawValue
-//            let amount = element[5].rawValue
             
             let dataEntry = CandleChartDataEntry(x: Double(index), shadowH: maxPrice, shadowL: minPrice, open: startPrice, close: endPrice)
             index += 1
@@ -95,7 +93,7 @@ final class CoinChartViewController: BaseViewController {
         chartDataSet.increasingFilled = true
         chartDataSet.decreasingColor = .systemBlue
         chartDataSet.decreasingFilled = true
-        chartDataSet.shadowColor = .black
+        chartDataSet.shadowColor = .label
         chartDataSet.shadowWidth = 0.7
         if !data.isEmpty {
             DispatchQueue.main.async {
@@ -108,15 +106,7 @@ final class CoinChartViewController: BaseViewController {
             }
 
         }
-//        chart.setScaleMinima(0.99, scaleY: 0.99)
-        
-        
-//        if data.count != 0 {
-//            chart.setVisibleXRangeMaximum(1000)
-//        }
-        
-        //radius 조절 : https://github.com/danielgindi/Charts/pull/4625 PR중
-//        chartDataSet.barCornerRadius = 3
+
         let chartData = CandleChartData(dataSet: chartDataSet)
         chart.data = chartData
     }

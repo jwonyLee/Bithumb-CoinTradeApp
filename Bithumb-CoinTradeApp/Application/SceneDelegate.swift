@@ -17,6 +17,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         window = UIWindow(windowScene: scene)
         let navigationController = UINavigationController()
+        let navigationAppearance: UINavigationBarAppearance = UINavigationBarAppearance()
+        navigationAppearance.configureWithOpaqueBackground()
+
+        navigationController.navigationBar.standardAppearance = navigationAppearance
+        navigationController.navigationBar.scrollEdgeAppearance = navigationAppearance
+
         window?.rootViewController = navigationController
         
         let restAPIRepository = RESTAPIRepository()

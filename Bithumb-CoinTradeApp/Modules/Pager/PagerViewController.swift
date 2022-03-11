@@ -20,9 +20,9 @@ final class PagerViewController: BaseViewController {
 
     private let transactionHistoryButton = UIButton().then {
         $0.setTitle("체결 내역", for: .normal)
-        $0.setTitleColor(.black, for: .normal)
+        $0.setTitleColor(.label, for: .normal)
         $0.layer.borderWidth = 1
-        $0.layer.borderColor = UIColor.black.cgColor
+        $0.layer.borderColor = UIColor.label.cgColor
         $0.layer.cornerRadius = 8
         $0.clipsToBounds = true
     }

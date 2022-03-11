@@ -77,10 +77,6 @@ final class LeaderBoardTableViewCell: UITableViewCell {
 
     private func setUI() {
         contentView.addSubviews(iconLabel, titleLabel, descriptionStack)
-
-        // TODO: 동적으로 accessibilityLabel 변경
-        topDescriptionLabel.accessibilityLabel = "입금 가능"
-        bottomDescriptionLabel.accessibilityLabel = "출금 불가능"
     }
 
     private func setConstraint() {

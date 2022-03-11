@@ -17,6 +17,7 @@ final class LeaderBoardViewController: BaseViewController {
     private let searchController = UISearchController(searchResultsController: nil)
     private let tableView = UITableView(frame: .zero, style: .plain).then {
         $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.allowsSelection = false
     }
 
     // MARK: - Properties
