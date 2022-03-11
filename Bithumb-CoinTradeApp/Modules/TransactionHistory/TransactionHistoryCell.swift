@@ -40,32 +40,46 @@ class TransactionHistoryCell: UITableViewCell {
     }
     
     private func setUI() {
-        contentView.addSubview(stackView)
+//        contentView.addSubview(stackView)
+        contentView.addSubview(dateLabel)
+        contentView.addSubview(priceLabel)
+        contentView.addSubview(quantityLabel)
     }
     
     private func setConstraints() {
-        stackView.addArrangedSubview(dateLabel)
-        stackView.addArrangedSubview(priceLabel)
-        stackView.addArrangedSubview(quantityLabel)
-        stackView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+        dateLabel.snp.makeConstraints { make in
+            make.leading.top.equalToSuperview()
+        }
+        priceLabel.snp.makeConstraints { make in
+            make.leading.bottom.equalToSuperview()
+            make.top.equalTo(dateLabel.snp.bottom)
+        }
+        quantityLabel.snp.makeConstraints { make in
+            make.trailing.bottom.equalToSuperview()
+            make.top.equalTo(dateLabel.snp.bottom)
         }
     }
     
     func configure(
         viewData: TransactionHistoryViewData
     ) {
-        dateLabel.text = viewData.transactionDate
+        let dateFormatter = DateFormatter()
+
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SS"
+        
+        let date = dateFormatter.date(from: viewData.transactionDate)
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateLabel.text = dateFormatter.string(from: date ?? Date())
         
         priceLabel.text = String(format: "%.0f", viewData.price)
         quantityLabel.text = String(format: "%.4f", viewData.quantity)
         
         if viewData.type == .bid {
-            priceLabel.textColor = .red
-            quantityLabel.textColor = .red
+            priceLabel.textColor = .systemRed
+            quantityLabel.textColor = .systemRed
         } else {
-            priceLabel.textColor = .blue
-            quantityLabel.textColor = .blue
+            priceLabel.textColor = .systemBlue
+            quantityLabel.textColor = .systemBlue
         }
     }
 }

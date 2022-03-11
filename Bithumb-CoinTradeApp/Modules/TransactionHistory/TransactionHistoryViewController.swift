@@ -22,7 +22,7 @@ final class TransactionHistoryViewController: BaseViewController {
     
     private lazy var tableView = UITableView().then {
         $0.register(TransactionHistoryCell.self, forCellReuseIdentifier: TransactionHistoryCell.reuseIdentifier)
-        $0.rowHeight = 30
+        $0.rowHeight = 50
         $0.tableHeaderView = header
     }
     
