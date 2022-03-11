@@ -17,7 +17,6 @@ final class CoinChartViewController: BaseViewController {
     private let viewModel: CoinChartViewModel
     
     let chart = CandleStickChartView().then {
-        $0.backgroundColor = .white
         $0.noDataText = "no data"
         $0.drawGridBackgroundEnabled = false
         $0.maxVisibleCount = 10
