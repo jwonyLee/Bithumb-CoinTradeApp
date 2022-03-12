@@ -35,7 +35,6 @@
 		8744A95827D64DAC002BC3AC /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744A95727D64DAC002BC3AC /* RealmRepository.swift */; };
 		878D0EFD27C4F3B40006D255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878D0EFC27C4F3B40006D255 /* AppDelegate.swift */; };
 		878D0EFF27C4F3B40006D255 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878D0EFE27C4F3B40006D255 /* SceneDelegate.swift */; };
-		878D0F0127C4F3B40006D255 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878D0F0027C4F3B40006D255 /* ViewController.swift */; };
 		878D0F0627C4F3B60006D255 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 878D0F0527C4F3B60006D255 /* Assets.xcassets */; };
 		878D0F0927C4F3B60006D255 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 878D0F0727C4F3B60006D255 /* LaunchScreen.storyboard */; };
 		878D0F1427C4F3B60006D255 /* Bithumb_CoinTradeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878D0F1327C4F3B60006D255 /* Bithumb_CoinTradeAppTests.swift */; };
@@ -121,7 +120,6 @@
 		878D0EF927C4F3B40006D255 /* Bithumb-CoinTradeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bithumb-CoinTradeApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		878D0EFC27C4F3B40006D255 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		878D0EFE27C4F3B40006D255 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		878D0F0027C4F3B40006D255 /* ViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		878D0F0527C4F3B60006D255 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		878D0F0827C4F3B60006D255 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		878D0F0A27C4F3B60006D255 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -261,6 +259,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		0099A56727DC3FBB00F7F982 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				8744A95727D64DAC002BC3AC /* RealmRepository.swift */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
 		22E50CE8291812DE9ADD9287 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,9 +309,9 @@
 				878D0F2C27C4F4DA0006D255 /* Application */,
 				87C6B43127C6593C00F880DE /* Modules */,
 				E5F5659C27C7C7FD0002599F /* Network */,
+				0099A56727DC3FBB00F7F982 /* DB */,
 				0082D8E227C9152400E65E72 /* Models */,
 				0082D8E527C9157500E65E72 /* Utils */,
-				878D0F0027C4F3B40006D255 /* ViewController.swift */,
 				878D0F0527C4F3B60006D255 /* Assets.xcassets */,
 				878D0F0727C4F3B60006D255 /* LaunchScreen.storyboard */,
 				878D0F0A27C4F3B60006D255 /* Info.plist */,
@@ -454,7 +460,6 @@
 				E5F565A027C7C8F20002599F /* BithumbEndpointCases.swift */,
 				0082D8E027C7CE8D00E65E72 /* RESTAPIRepository.swift */,
 				0026D86527D4B48100B40A6F /* WebSocket */,
-				8744A95727D64DAC002BC3AC /* RealmRepository.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -730,7 +735,6 @@
 				0082D91327CE5B8600E65E72 /* CoinListViewModel.swift in Sources */,
 				87C6B43727C65A5100F880DE /* CoinCoordinator.swift in Sources */,
 				E598E56C27CF55BC006D7659 /* TransactionHistoryViewData.swift in Sources */,
-				878D0F0127C4F3B40006D255 /* ViewController.swift in Sources */,
 				0082D8ED27C9164500E65E72 /* TransactionHistory.swift in Sources */,
 				0082D8E427C9153B00E65E72 /* AssetStatus.swift in Sources */,
 				0026D86727D636BF00B40A6F /* Double+.swift in Sources */,

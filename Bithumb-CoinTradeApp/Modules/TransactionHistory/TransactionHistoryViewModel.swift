@@ -19,7 +19,6 @@ class TransactionHistoryViewModel: TransactionHistoryViewModelType {
     private let disposeBag = DisposeBag()
     
     private let webSocketService: WebSocketServiceType
-//    private let restAPIRepository: RESTAPIRepositable
     
     private var transactionViewDataList = [TransactionHistoryViewData]()
     private let transactionListViewDataSubject = BehaviorSubject<[TransactionHistoryViewData]>(value: [])

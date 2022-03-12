@@ -40,7 +40,6 @@ class TransactionHistoryCell: UITableViewCell {
     }
     
     private func setUI() {
-//        contentView.addSubview(stackView)
         contentView.addSubview(dateLabel)
         contentView.addSubview(priceLabel)
         contentView.addSubview(quantityLabel)
